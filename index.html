@@ -126,27 +126,29 @@
       margin-bottom: 3rem;
     }
     
-    /* 修正照片容器：鎖定固定寬高與置中，防止手機拉伸跑版 */
+    /* 核心修復：強制固定直式照片框尺寸，防止被手機橫向拉伸 */
     .hero-photo-wrapper {
-      width: 220px;
-      height: 290px;
-      flex: 0 0 220px;
+      width: 220px !important;
+      height: 290px !important;
+      max-width: 220px !important;
+      flex: 0 0 290px !important;
+      align-self: center !important;
       background: #eef2f6;
       border: 1px solid var(--color-border);
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      margin: 0 auto;
       position: relative;
     }
-    /* 修正影像對焦：以臉部為中心微調放大，確保頭髮眼睛不被裁切且畫質清晰 */
+
+    /* 核心修復：以臉部領帶為中心放大，留出頂部頭髮與眼睛空間 */
     .hero-photo-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
-      transform: scale(1.38);
-      transform-origin: 50% 22%;
-      image-rendering: -webkit-optimize-contrast;
+      transform: scale(1.65);
+      transform-origin: 50% 36%;
       display: block;
     }
 
@@ -356,22 +358,23 @@
 
     .en-view { display: none; }
 
-    /* Mobile Responsive Settings */
+    /* 手機版排版優化 */
     @media (max-width: 768px) {
       .nav-container { flex-direction: column; gap: 1rem; }
       nav ul.nav-menu { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
       .weebly-hero-card { 
-        flex-direction: column; 
-        text-align: center; 
-        align-items: center; 
-        gap: 1.5rem; 
+        flex-direction: column !important; 
+        text-align: center !important; 
+        align-items: center !important; 
+        gap: 1.5rem !important; 
       }
-      /* 手機版維持精巧直式肖像框，避免被拉寬切除頭部 */
       .hero-photo-wrapper { 
-        width: 200px;
-        height: 270px;
-        flex: 0 0 270px;
-        margin: 0 auto; 
+        width: 220px !important;
+        height: 290px !important;
+        max-width: 220px !important;
+        flex: 0 0 290px !important;
+        align-self: center !important;
+        margin: 0 auto !important; 
       }
       .timeline-table td.year-col { width: 110px; }
       .service-grid { grid-template-columns: 1fr; }
