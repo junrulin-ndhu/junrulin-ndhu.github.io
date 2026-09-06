@@ -126,7 +126,6 @@
       margin-bottom: 3rem;
     }
     
-    /* 核心修復：強制固定直式照片框尺寸，防止被手機橫向拉伸 */
     .hero-photo-wrapper {
       width: 220px !important;
       height: 290px !important;
@@ -142,7 +141,6 @@
       position: relative;
     }
 
-    /* 核心修復：以臉部領帶為中心放大，留出頂部頭髮與眼睛空間 */
     .hero-photo-wrapper img {
       width: 100%;
       height: 100%;
@@ -290,36 +288,6 @@
       border: 1px solid #d8b4fe;
     }
 
-    /* Grid Layout for Professional Service */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .service-box {
-      background: var(--color-bg-light);
-      border: 1px solid #e9edf2;
-      padding: 0.95rem 1.2rem;
-      border-radius: 4px;
-      font-size: 0.94rem;
-      color: #334155;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-left: 3px solid var(--color-accent);
-    }
-    .service-org {
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 0.2rem;
-    }
-    .service-role {
-      font-size: 0.88rem;
-      color: var(--color-accent);
-      font-weight: 500;
-    }
-
     /* Contact Cards */
     .contact-card-container {
       display: grid;
@@ -358,7 +326,7 @@
 
     .en-view { display: none; }
 
-    /* 手機版排版優化 */
+    /* Mobile Responsive Settings */
     @media (max-width: 768px) {
       .nav-container { flex-direction: column; gap: 1rem; }
       nav ul.nav-menu { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
@@ -377,7 +345,6 @@
         margin: 0 auto !important; 
       }
       .timeline-table td.year-col { width: 110px; }
-      .service-grid { grid-template-columns: 1fr; }
       .course-badge-grid { justify-content: center; }
     }
   </style>
@@ -585,13 +552,10 @@
         <span class="en-view">Books</span>
       </h3>
       <div class="pub-entry">
-        <span class="pub-year">2024</span> 王曉丹、<strong>林俊儒</strong>、黃翊，《透視司法工作：一線視角下的負擔課題與管理優化對策》，台北：司法院。
+        <span class="pub-year">2023.10</span> <strong>林俊儒</strong>主編及合著，《用藥少年：寫給老師的校園法規與輔導實務》（ISBN: 978-626-366-229-2），台北：五南圖書出版。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2023</span> <strong>林俊儒</strong>主編及合著，《用藥少年：寫給老師的校園法規與輔導實務》（ISBN: 978-626-366-229-2），台北：五南圖書出版。
-      </div>
-      <div class="pub-entry">
-        <span class="pub-year">2022</span> 何萬順、蔣侃學、<strong>林俊儒</strong>、何姵萱，《金玉其外：大學英檢畢業門檻的反思》（ISBN: 978-986-147-983-5），台北：文鶴出版社。
+        <span class="pub-year">2022.06</span> 何萬順、蔣侃學、<strong>林俊儒</strong>、何姵萱，《金玉其外：大學英檢畢業門檻的反思》（ISBN: 978-986-147-983-5），台北：文鶴出版社。
       </div>
 
       <!-- 專書篇章 -->
@@ -600,7 +564,7 @@
         <span class="en-view">Book Chapters</span>
       </h3>
       <div class="pub-entry">
-        <span class="pub-year">2025</span> 柯哲瑜、<strong>林俊儒</strong>，〈原住民族健康法使用指南〉，收錄於《翻轉不平等：《原住民族健康法》教戰手冊》（ISBN: 9786269761623），頁 10-24，台北：基地文化出版有限公司。
+        <span class="pub-year">2025.01</span> 柯哲瑜、<strong>林俊儒</strong>，〈原住民族健康法使用指南〉，收錄於《翻轉不平等：《原住民族健康法》教戰手冊》（ISBN: 9786269761623），頁 10-24，台北：基地文化出版有限公司。
       </div>
 
       <!-- 期刊論文 -->
@@ -609,68 +573,80 @@
         <span class="en-view">Journal Articles</span>
       </h3>
       <div class="pub-entry">
-        <span class="pub-year">2025</span> 王曉丹、<strong>林俊儒</strong>，〈法律中的社會事實：原住民族狩獵治理的法律技術〉，《國立臺灣大學法學論叢》（已接受刊登）。
+        <span class="pub-year">2025.12</span> 王曉丹、<strong>林俊儒</strong>，〈法律中的社會事實：原住民族狩獵治理的法律技術〉，《國立臺灣大學法學論叢》（已接受刊登）。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2025</span> 范耕維、<strong>林俊儒</strong>，〈初探臺灣原住民族刑事文化抗辯的適用與意義：以花蓮地方法院實證研究為起點〉，《中研院法學期刊》，第36期，頁 287-394。
+        <span class="pub-year">2025.03</span> 范耕維、<strong>林俊儒</strong>，〈初探臺灣原住民族刑事文化抗辯的適用與意義：以花蓮地方法院實證研究為起點〉，《中研院法學期刊》，第36期，頁 287-394。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2024</span> Fan, Keng-Wei, & <strong>Jun-Ru Lin</strong>, “Eliminate structural injustices or Perpetuate it: Indigenous Peoples and Transitional Justice in Criminal Court System of Taiwan,” <em>International Journal of Transitional Justice</em>, 18(2), 218-236.
+        <span class="pub-year">2024.11</span> <strong>林俊儒</strong>，〈施用毒品者處遇的病犯體制：大法庭與刑事政策相互形塑的啟示與檢討〉，《國立臺灣大學法學論叢》，第53卷第4期，頁 1021-1076。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024.09</span> <strong>林俊儒</strong>，〈刑事司法對於藥物輔助處遇的限制─美國身心障礙者法案如何促進法律與文化變遷〉，《月旦醫事法報告》，第95期，頁 56-67。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024.07</span> Fan, Keng-Wei, & <strong>Jun-Ru Lin</strong>, “Eliminate structural injustices or Perpetuate it: Indigenous Peoples and Transitional Justice in Criminal Court System of Taiwan,” <em>International Journal of Transitional Justice</em>, 18(2), 218-236.
         <span class="badge badge-ssci">SSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2024</span> <strong>林俊儒</strong>，〈施用毒品者處遇的病犯體制：大法庭與刑事政策相互形塑的啟示與檢討〉，《國立臺灣大學法學論叢》，第53卷第4期，頁 1021-1076。
+        <span class="pub-year">2024.04</span> <strong>林俊儒</strong>，〈施用毒品者處遇裁量的正當程序課題初探〉，《月旦律評》，第25期，頁 128-135。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2023.11</span> 柯哲瑜、<strong>林俊儒</strong>，〈原住民族健康法的立法倡議與行動〉，《月旦醫事法報告》，第85期，頁 17-32。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2023.09</span> <strong>林俊儒</strong>，〈「供出毒品來源」供述證據補強法則之檢證─以販賣毒品既遂案件為中心〉，《法律扶助與社會》，第11期，頁 1-38。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2022.09</span> 謝如媛、<strong>林俊儒</strong>，〈多元複合的假釋制度─美國假釋制度的考察與反思〉，《政大法學評論》，第170期，頁 1-53。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2024</span> <strong>林俊儒</strong>，〈刑事司法對於藥物輔助處遇的限制─美國身心障礙者法案如何促進法律與文化變遷〉，《月旦醫事法報告》，第95期，頁 56-67。
+        <span class="pub-year">2022.03</span> <strong>林俊儒</strong>，〈再犯認定、處遇等同性與機關分工─從大法庭裁定觀察毒品施用者處遇的法理發展與運作情形〉，《法律扶助與社會》，第8期，頁 197-230。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2024</span> <strong>林俊儒</strong>，〈施用毒品者處遇裁量的正當程序課題初探〉，《月旦律評》，第25期，頁 128-135。
-      </div>
-      <div class="pub-entry">
-        <span class="pub-year">2023</span> 柯哲瑜、<strong>林俊儒</strong>，〈原住民族健康法的立法倡議與行動〉，《月旦醫事法報告》，第85期，頁 17-32。
-      </div>
-      <div class="pub-entry">
-        <span class="pub-year">2023</span> <strong>林俊儒</strong>，〈「供出毒品來源」供述證據補強法則之檢證─以販賣毒品既遂案件為中心〉，《法律扶助與社會》，第11期，頁 1-38。
-      </div>
-      <div class="pub-entry">
-        <span class="pub-year">2022</span> 謝如媛、<strong>林俊儒</strong>，〈多元複合的假釋制度─美國假釋制度的考察與反思〉，《政大法學評論》，第170期，頁 1-53。
+        <span class="pub-year">2021.09</span> 何萬順、蔡介文、<strong>林俊儒</strong>、葉佳明，〈學業退學制度是否合理妥適？實證研究的證據〉，《當代教育研究季刊》，第29卷第3期，頁 81-119。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2022</span> <strong>林俊儒</strong>，〈再犯認定、處遇等同性與機關分工─從大法庭裁定觀察毒品施用者處遇的法理發展與運作情形〉，《法律扶助與社會》，第8期，頁 197-230。
-      </div>
-      <div class="pub-entry">
-        <span class="pub-year">2021</span> 何萬順、蔡介文、<strong>林俊儒</strong>、葉佳明，〈學業退學制度是否合理妥適？實證研究的證據〉，《當代教育研究季刊》，第29卷第3期，頁 81-119。
+        <span class="pub-year">2020.10</span> 林昆翰、<strong>林俊儒</strong>、何萬順，〈大學零學分制度的批判與反思〉，《課程與教學季刊》，第23卷第4期，頁 233-256。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2020</span> 林昆翰、<strong>林俊儒</strong>、何萬順，〈大學零學分制度的批判與反思〉，《課程與教學季刊》，第23卷第4期，頁 233-256。
+        <span class="pub-year">2020.07</span> <strong>林俊儒</strong>，〈減刑規定與罪刑相當原則：從釋字第790號反思重刑化的毒品政策〉，《月旦醫事法報告》，第45期，頁 17-28。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2019.11</span> 何萬順、<strong>林俊儒</strong>、林昆翰，〈從「大學以教學為目的」之憲法意涵論畢業條件的「品字標準」：以最高行政法院107年判字第488號政大英檢門檻案為中心〉，《教育政策論壇》，第22卷第4期，頁 1-22。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2020</span> <strong>林俊儒</strong>，〈減刑規定與罪刑相當原則：從釋字第790號反思重刑化的毒品政策〉，《月旦醫事法報告》，第45期，頁 17-28。
-      </div>
-      <div class="pub-entry">
-        <span class="pub-year">2019</span> 何萬順、<strong>林俊儒</strong>、林昆翰，〈從「大學以教學為目的」之憲法意涵論畢業條件的「品字標準」：以最高行政法院107年判字第488號政大英檢門檻案為中心〉，《教育政策論壇》，第22卷第4期，頁 1-22。
+        <span class="pub-year">2019.03</span> <strong>林俊儒</strong>、林昆翰、何萬順，〈論「通過／不通過制」在大學教育的誤用與重塑〉，《教育研究集刊》，第65卷第3期，頁 65-89。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2019</span> <strong>林俊儒</strong>、林昆翰、何萬順，〈論「通過／不通過制」在大學教育的誤用與重塑〉，《教育研究集刊》，第65卷第3期，頁 65-89。
+        <span class="pub-year">2019.03</span> <strong>林俊儒</strong>，〈毒品法庭的制度內涵與爭議檢討〉，《犯罪與刑事司法》，第31期，頁 35-70。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2018.12</span> 何萬順、<strong>林俊儒</strong>，〈大學自治還是教育外包？簡評高等行政法院106年度訴字第169號政大英語畢業門檻之判決〉，《全國律師》，第105-114頁。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2017.09</span> 何萬順、<strong>林俊儒</strong>，〈大學學業退學制度的批判與反思〉，《教育研究集刊》，第63卷第3期，頁 77-106。
         <span class="badge badge-tssci">TSSCI</span>
       </div>
+
+      <!-- 電子出版 -->
+      <h3 class="sub-header">
+        <span class="zh-view">電子出版 (Electronic Publications)</span>
+        <span class="en-view">Electronic Publications</span>
+      </h3>
       <div class="pub-entry">
-        <span class="pub-year">2019</span> <strong>林俊儒</strong>，〈毒品法庭的制度內涵與爭議檢討〉，《犯罪與刑事司法》，第31期，頁 35-70。
+        <span class="pub-year">2025.10</span> 王曉丹、林佳和、<strong>林俊儒</strong>、簡澤濠、李旻桓，《司法調解的民主正當性：民事、勞動、家事、少事與刑事場域中司法單向決定模式的再造》，臺灣 臺北：司法院。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2018</span> 何萬順、<strong>林俊儒</strong>，〈大學自治還是教育外包？簡評高等行政法院106年度訴字第169號政大英語畢業門檻之判決〉，《全國律師》，第105-114頁。
-      </div>
-      <div class="pub-entry">
-        <span class="pub-year">2017</span> 何萬順、<strong>林俊儒</strong>，〈大學學業退學制度的批判與反思〉，《教育研究集刊》，第63卷第3期，頁 77-106。
-        <span class="badge badge-tssci">TSSCI</span>
+        <span class="pub-year">2024.08</span> 王曉丹、<strong>林俊儒</strong>、黃翊，《透視司法工作：一線視角下的負擔課題與管理優化對策》，臺灣 臺北：司法院。
       </div>
     </section>
 
@@ -681,43 +657,43 @@
         <span class="en-view">Conference Presentations</span>
       </h2>
       <div class="pub-entry">
-        <span class="pub-year">2026.09</span> 林俊儒、王曉丹，〈在自然計劃裡找回巨人？：國家公園的法律治理與共管機制〉，台灣法律與社會學會第二屆年會，台北。
+        <span class="pub-year">2026.09</span> <strong>林俊儒</strong>、王曉丹，〈在自然計劃裡找回巨人？：國家公園的法律治理與共管機制〉，台灣法律與社會學會第二屆年會，台北。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2026.03</span> 林俊儒，〈治療式司法的限制與展望：以施用毒品者處遇的程序規制為中心〉，2026台灣刑事法學會刑事法青年論壇（十一），台北。
+        <span class="pub-year">2026.03</span> <strong>林俊儒</strong>，〈治療式司法的限制與展望：以施用毒品者處遇的程序規制為中心〉，2026台灣刑事法學會刑事法青年論壇（十一），台北。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2026.01</span> 林俊儒、王曉丹、柯哲瑜，〈太魯閣族與國家公園共管機制的空間實作與限制〉，「東遷史下的太魯閣族傳統領域與土地法制的再思考」座談，花蓮。
+        <span class="pub-year">2026.01</span> <strong>林俊儒</strong>、王曉丹、柯哲瑜，〈太魯閣族與國家公園共管機制的空間實作與限制〉，「東遷史下的太魯閣族傳統領域與土地法制的再思考」座談，花蓮。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2025.11</span> 林俊儒，〈刑事司法的案件流程管理：以地方法院審查庭為中心〉，台灣法律與社會學會成立大會暨第一屆年會，台北。
+        <span class="pub-year">2025.11</span> <strong>林俊儒</strong>，〈刑事司法的案件流程管理：以地方法院審查庭為中心〉，台灣法律與社會學會成立大會暨第一屆年會，台北。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2025.11</span> 林俊儒，〈原住民族法律服務的文化安全：以刑事司法系統為中心〉，第十二屆原住民族傳統習慣與國家法制研討會，台北。
+        <span class="pub-year">2025.11</span> <strong>林俊儒</strong>，〈原住民族法律服務的文化安全：以刑事司法系統為中心〉，第十二屆原住民族傳統習慣與國家法制研討會，台北。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2025.09</span> 林俊儒，〈原住民族諮商同意權：複數部落的規範與實務〉，2025年東亞環境問題研究會年度研討會，花蓮。
+        <span class="pub-year">2025.09</span> <strong>林俊儒</strong>，〈原住民族諮商同意權：複數部落的規範與實務〉，2025年東亞環境問題研究會年度研討會，花蓮。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2025.05</span> Fan, Keng-Wei, Ho, Han-Wei, & Lin, Jun Ru, “From Cultural Convergence to the Unjust Production of Cultural Stereotype: An Empirical Study on How Taiwan's Criminal Court System Addresses Indigenous Cultural Defenses,” Law and Society Association (LSA) Annual Meeting, Chicago, USA.
+        <span class="pub-year">2025.05</span> Fan, Keng-Wei, Ho, Han-Wei, & <strong>Jun-Ru Lin</strong>, “From Cultural Convergence to the Unjust Production of Cultural Stereotype: An Empirical Study on How Taiwan's Criminal Court System Addresses Indigenous Cultural Defenses,” Law and Society Association (LSA) Annual Meeting, Chicago, USA.
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2025.05</span> 范耕維、何漢葳、林俊儒，〈原住民族文化權利及正義的實現？──從實質法治觀省思台灣司法系統對文化衝突案件的論罪與科刑〉，台灣法理學會2025年學術研討會，台北。
+        <span class="pub-year">2025.05</span> 范耕維、何漢葳、<strong>林俊儒</strong>，〈原住民族文化權利及正義的實現？──從實質法治觀省思台灣司法系統對文化衝突案件的論罪與科刑〉，台灣法理學會2025年學術研討會，台北。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2024.11</span> 王曉丹、林俊儒，〈誰在製作法律：法律技術如何形塑原住民族主體與狩獵權〉，「原住民族法的研究：典範與轉型」學術研討會，花蓮。
+        <span class="pub-year">2024.11</span> 王曉丹、<strong>林俊儒</strong>，〈誰在製作法律：法律技術如何形塑原住民族主體與狩獵權〉，「原住民族法的研究：典範與轉型」學術研討會，花蓮。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2024.07</span> Fan, Keng-Wei, & Lin, Jun-Ru, “Exploring Indigenous Cultural Defense Dynamics in Taiwan: An Empirical Analysis,” Asian Law and Economics Association (AsLEA) Annual Conference, Tainan.
+        <span class="pub-year">2024.07</span> Fan, Keng-Wei, & <strong>Jun-Ru Lin</strong>, “Exploring Indigenous Cultural Defense Dynamics in Taiwan: An Empirical Analysis,” Asian Law and Economics Association (AsLEA) Annual Conference, Tainan.
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2023.11</span> Lin, Jun-Ru, “Access to What? Rethinking Indigenous Criminal Legal Aid in Taiwan,” Pacific Neighborhood Consortium (PNC), Okinawa, Japan.
+        <span class="pub-year">2023.11</span> <strong>Jun-Ru Lin</strong>, “Access to What? Rethinking Indigenous Criminal Legal Aid in Taiwan,” Pacific Neighborhood Consortium (PNC), Okinawa, Japan.
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2023.10</span> 林俊儒，〈原住民族「近用」刑事司法？－刑事程序早期介入措施的實證研究反思〉，第十屆原住民族傳統習慣與國家法制研討會，台北。
+        <span class="pub-year">2023.10</span> <strong>林俊儒</strong>，〈原住民族「近用」刑事司法？－刑事程序早期介入措施的實證研究反思〉，第十屆原住民族傳統習慣與國家法制研討會，台北。
       </div>
       <div class="pub-entry">
-        <span class="pub-year">2022.12</span> Fan, Keng-Wei, Ho, Han-Wei, & Lin, Jun-Ru, “Equity Factors in Drug Trafficking Sentencing,” 2nd Conference on Empirical Legal Studies in Asia (CELSA), Taipei.
+        <span class="pub-year">2022.12</span> Fan, Keng-Wei, Ho, Han-Wei, & <strong>Jun-Ru Lin</strong>, “Equity Factors in Drug Trafficking Sentencing,” 2nd Conference on Empirical Legal Studies in Asia (CELSA), Taipei.
       </div>
     </section>
 
@@ -727,43 +703,31 @@
         <span class="zh-view">專業學術服務經歷</span>
         <span class="en-view">Professional & Academic Service</span>
       </h2>
-      <div class="service-grid">
-        <div class="service-box">
-          <div class="service-org">台灣法律與社會學會</div>
-          <div class="service-role">秘書長</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">全國律師聯合會 犯罪被害人權益保障委員會</div>
-          <div class="service-role">委員</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">全國律師聯合會 原住民族法制委員會</div>
-          <div class="service-role">委員</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">全國律師聯合會 人權保護委員會</div>
-          <div class="service-role">委員</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">台北律師公會 犯罪被害人保護委員會</div>
-          <div class="service-role">委員</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">財團法人法律扶助基金會 刑事程序法委員會</div>
-          <div class="service-role">委員</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">財團法人民間司法改革基金會</div>
-          <div class="service-role">常務執行委員</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">台灣太魯閣族自治協會</div>
-          <div class="service-role">法律顧問</div>
-        </div>
-        <div class="service-box">
-          <div class="service-org">秀林鄉太魯閣族獵人協會</div>
-          <div class="service-role">法律顧問</div>
-        </div>
+      
+      <div class="zh-view">
+        <div class="pub-entry">台灣法律與社會學會 秘書長</div>
+        <div class="pub-entry">臺灣高等法院花蓮分院刑事補償事件求償委員會 委員</div>
+        <div class="pub-entry">全國律師聯合會 犯罪被害人權益保障委員會 委員</div>
+        <div class="pub-entry">全國律師聯合會 原住民族法制委員會 委員</div>
+        <div class="pub-entry">全國律師聯合會 人權保護委員會 委員</div>
+        <div class="pub-entry">台北律師公會 犯罪被害人保護委員會 委員</div>
+        <div class="pub-entry">財團法人法律扶助基金會 刑事程序法委員會 委員</div>
+        <div class="pub-entry">財團法人民間司法改革基金會 常務執行委員</div>
+        <div class="pub-entry">台灣太魯閣族自治協會 法律顧問</div>
+        <div class="pub-entry">秀林鄉太魯閣族獵人協會 法律顧問</div>
+      </div>
+
+      <div class="en-view">
+        <div class="pub-entry">Secretary-General, Taiwanese Law and Society Association</div>
+        <div class="pub-entry">Member, Criminal Compensation Claims Committee, Hualien Branch of Taiwan High Court</div>
+        <div class="pub-entry">Member, Crime Victims Rights Protection Committee, National Bar Association</div>
+        <div class="pub-entry">Member, Indigenous Peoples Legal System Committee, National Bar Association</div>
+        <div class="pub-entry">Member, Human Rights Protection Committee, National Bar Association</div>
+        <div class="pub-entry">Member, Crime Victims Protection Committee, Taipei Bar Association</div>
+        <div class="pub-entry">Member, Criminal Procedure Law Committee, Legal Aid Foundation</div>
+        <div class="pub-entry">Standing Executive Committee Member, Judicial Reform Foundation</div>
+        <div class="pub-entry">Legal Consultant, Truku Autonomous Association of Taiwan</div>
+        <div class="pub-entry">Legal Consultant, Truku Hunter Association of Xiulin Township</div>
       </div>
     </section>
 
