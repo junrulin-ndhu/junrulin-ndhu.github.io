@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林俊儒 Jun-Ru Lin | 個人學術網站</title>
+  <style>
+    :root {
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      --color-primary: #1c2b39;
+      --color-accent: #2b5b84;
+      --color-accent-hover: #1e3f5d;
+      --color-text: #333333;
+      --color-muted: #666666;
+      --color-bg-light: #f7f9fa;
+      --color-border: #e6ebf0;
+      --badge-tssci: #0077b6;
+      --badge-ssci: #6f42c1;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--color-text);
+      background-color: #ffffff;
+      line-height: 1.75;
+      font-size: 15.5px;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      color: var(--color-accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Header & Navigation */
+    header.weebly-header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .nav-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--color-primary);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name span.sub-title {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--color-muted);
+      letter-spacing: 0.02em;
+    }
+
+    nav ul.nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1.3rem;
+      align-items: center;
+    }
+    nav ul.nav-menu li a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #4a5568;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.3rem 0;
+      position: relative;
+    }
+    nav ul.nav-menu li a:hover {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .lang-toggle-btn {
+      border: 1px solid #cbd5e1;
+      background: transparent;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.82rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--color-accent);
+      transition: all 0.2s;
+    }
+    .lang-toggle-btn:hover {
+      background: var(--color-accent);
+      color: #ffffff;
+      border-color: var(--color-accent);
+    }
+
+    /* Page Container */
+    .page-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem 1.5rem;
+    }
+
+    /* Hero Profile Card */
+    .weebly-hero-card {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      padding: 2.5rem 0 3rem 0;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 3rem;
+    }
+    .hero-photo-wrapper {
+      flex: 0 0 230px;
+      height: 310px;
+      background: #eef2f6;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    /* 人像放大與對焦控制：放大 1.8 倍並鎖定上半身，減少周圍景物 */
+    .hero-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.8);
+      transform-origin: 50% 33%;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.3rem;
+    }
+    .hero-text .affiliation {
+      font-size: 1.12rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    .hero-text .bio {
+      color: #374151;
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    /* Sections */
+    section.weebly-section {
+      margin-bottom: 3.5rem;
+    }
+    h2.section-header {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.8rem;
+      border-bottom: 2px solid var(--color-primary);
+      display: inline-block;
+    }
+    h3.sub-header {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin: 1.8rem 0 1rem 0;
+      padding-left: 0.5rem;
+      border-left: 3px solid var(--color-accent);
+    }
+
+    /* Course Badges */
+    .course-badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.6rem;
+    }
+    .course-badge {
+      background: var(--color-bg-light);
+      border: 1px solid #dbe2ea;
+      color: #243447;
+      padding: 0.45rem 0.95rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Timeline Style */
+    .timeline-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+    }
+    .timeline-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .timeline-table tr:last-child {
+      border-bottom: none;
+    }
+    .timeline-table td {
+      padding: 0.85rem 0;
+      vertical-align: top;
+    }
+    .timeline-table td.year-col {
+      width: 160px;
+      font-weight: 600;
+      color: var(--color-accent);
+      font-size: 0.92rem;
+    }
+    .timeline-table td.desc-col strong {
+      display: block;
+      color: #1e293b;
+      font-size: 0.98rem;
+    }
+    .timeline-table td.desc-col span {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Publications List Style */
+    .pub-entry {
+      padding: 0.85rem 0 0.85rem 1.8rem;
+      position: relative;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.96rem;
+      line-height: 1.68;
+    }
+    .pub-entry:last-child {
+      border-bottom: none;
+    }
+    .pub-entry::before {
+      content: "▪";
+      position: absolute;
+      left: 0.4rem;
+      color: var(--color-accent);
+    }
+    .pub-year {
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-right: 0.35rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      font-weight: 600;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
+    }
+    .badge-tssci {
+      background: #e0f2fe;
+      color: var(--badge-tssci);
+      border: 1px solid #bae6fd;
+    }
+    .badge-ssci {
+      background: #f3e8ff;
+      color: var(--badge-ssci);
+      border: 1px solid #d8b4fe;
+    }
+
+    /* Grid Layout for Professional Service */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .service-box {
+      background: var(--color-bg-light);
+      border: 1px solid #e9edf2;
+      padding: 0.95rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.94rem;
+      color: #334155;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 3px solid var(--color-accent);
+    }
+    .service-org {
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.2rem;
+    }
+    .service-role {
+      font-size: 0.88rem;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Contact Cards */
+    .contact-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.4rem;
+      margin-top: 1rem;
+    }
+    .contact-card {
+      background: var(--color-bg-light);
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 1.4rem;
+    }
+    .contact-card h4 {
+      font-size: 1rem;
+      color: var(--color-primary);
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 0.4rem;
+    }
+    .contact-card p {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer.weebly-footer {
+      background: #f8fafc;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.88rem;
+      color: var(--color-muted);
+    }
+
+    .en-view { display: none; }
+
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; gap: 1rem; }
+      nav ul.nav-menu { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+      .weebly-hero-card { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .timeline-table td.year-col { width: 110px; }
+      .hero-photo-wrapper { margin: 0 auto; }
+      .service-grid { grid-template-columns: 1fr; }
+      .course-badge-grid { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <header class="weebly-header">
+    <div class="nav-container">
+      <a href="#" class="brand-name">
+        <span class="zh-view">林俊儒</span>
+        <span class="en-view">Jun-Ru Lin</span>
+        <span class="sub-title zh-view">國立東華大學法律學系</span>
+        <span class="sub-title en-view">Department of Law, NDHU</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#about" class="nav-link" data-zh="簡介" data-en="About">簡介</a></li>
+          <li><a href="#experience" class="nav-link" data-zh="學經歷" data-en="CV">學經歷</a></li>
+          <li><a href="#courses" class="nav-link" data-zh="授課課程" data-en="Courses">授課課程</a></li>
+          <li><a href="#publications" class="nav-link" data-zh="著作出版" data-en="Publications">著作出版</a></li>
+          <li><a href="#conferences" class="nav-link" data-zh="研討會" data-en="Conferences">研討會</a></li>
+          <li><a href="#service" class="nav-link" data-zh="專業服務" data-en="Service">專業服務</a></li>
+          <li><a href="#contact" class="nav-link" data-zh="聯絡資訊" data-en="Contact">聯絡資訊</a></li>
+          <li><button class="lang-toggle-btn" onclick="toggleLanguage()">Switch to English</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-container">
+
+    <!-- 首頁簡介 Profile 區塊 -->
+    <div class="weebly-hero-card" id="about">
+      <div class="hero-photo-wrapper">
+        <img src="avatar.jpg" alt="林俊儒 Jun-Ru Lin" onerror="this.src='profile.jpg'; this.onerror=null;">
+      </div>
+      <div class="hero-text">
+        <div class="zh-view">
+          <h1>林俊儒</h1>
+          <div class="affiliation">國立東華大學法律學系 專任助理教授</div>
+          <p class="bio">
+            任職於國立東華大學法律學系，研究領域為刑事政策、法律與社會、原住民族法。在進入學術機構之前，有6年執業律師經驗，並投入刑事辯護、策略性訴訟。亦曾於NGO 工作，從事立法遊說、公民倡議。
+          </p>
+        </div>
+        <div class="en-view">
+          <h1>Jun-Ru Lin</h1>
+          <div class="affiliation">Assistant Professor, Department of Law, National Dong Hwa University</div>
+          <p class="bio">
+            Jun-Ru Lin is an Assistant Professor at the Department of Law, National Dong Hwa University. His research fields encompass criminal policy, law and society, and indigenous law. Prior to entering academia, he had six years of experience as a practicing attorney focusing on criminal defense and strategic litigation, and worked with NGOs engaged in legislative lobbying and civic advocacy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 學經歷 (CV & Appointments) -->
+    <section class="weebly-section" id="experience">
+      <h2 class="section-header">
+        <span class="zh-view">學經歷</span>
+        <span class="en-view">Appointments & Education</span>
+      </h2>
+
+      <h3 class="sub-header">
+        <span class="zh-view">主要經歷</span>
+        <span class="en-view">Professional Appointments</span>
+      </h3>
+      <table class="timeline-table">
+        <tr>
+          <td class="year-col">2025.08 – 迄今</td>
+          <td class="desc-col">
+            <strong>國立東華大學 法律學系</strong>
+            <span>專任助理教授</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="year-col">2022.08 – 2025.07</td>
+          <td class="desc-col">
+            <strong>偵理法律事務所</strong>
+            <span>主持律師 / 負責人</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="year-col">2020.10 – 2022.07</td>
+          <td class="desc-col">
+            <strong>財團法人民間司法改革基金會</strong>
+            <span>法律政策部主任</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="year-col">2019.05 – 2020.09</td>
+          <td class="desc-col">
+            <strong>喆律法律事務所</strong>
+            <span>律師</span>
+          </td>
+        </tr>
+      </table>
+
+      <h3 class="sub-header" style="margin-top: 2.2rem;">
+        <span class="zh-view">學歷</span>
+        <span class="en-view">Education</span>
+      </h3>
+      <table class="timeline-table">
+        <tr>
+          <td class="year-col">2020.09 – 2024.11</td>
+          <td class="desc-col">
+            <strong>國立政治大學 法律學系</strong>
+            <span>法學博士</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="year-col">2014.09 – 2018.01</td>
+          <td class="desc-col">
+            <strong>國立政治大學 法律學系</strong>
+            <span>法學碩士</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="year-col">2010.09 – 2014.08</td>
+          <td class="desc-col">
+            <strong>國立政治大學 法律學系</strong>
+            <span>法學學士</span>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 授課課程 Courses -->
+    <section class="weebly-section" id="courses">
+      <h2 class="section-header">
+        <span class="zh-view">授課課程</span>
+        <span class="en-view">Teaching & Courses</span>
+      </h2>
+
+      <h3 class="sub-header">
+        <span class="zh-view">大學部開設</span>
+        <span class="en-view">Undergraduate Courses</span>
+      </h3>
+      <div class="zh-view course-badge-grid">
+        <span class="course-badge">刑事訴訟法</span>
+        <span class="course-badge">毒品政策與法律</span>
+        <span class="course-badge">犯罪學</span>
+        <span class="course-badge">法社會學</span>
+        <span class="course-badge">原住民族傳統領域與法律</span>
+        <span class="course-badge">原住民族法各論</span>
+      </div>
+      <div class="en-view course-badge-grid">
+        <span class="course-badge">Criminal Procedure</span>
+        <span class="course-badge">Drug Policy and Law</span>
+        <span class="course-badge">Criminology</span>
+        <span class="course-badge">Sociology of Law</span>
+        <span class="course-badge">Indigenous Traditional Territory and Law</span>
+        <span class="course-badge">Special Topics in Indigenous Peoples Law</span>
+      </div>
+
+      <h3 class="sub-header" style="margin-top: 2rem;">
+        <span class="zh-view">研究所開設</span>
+        <span class="en-view">Graduate Courses</span>
+      </h3>
+      <div class="zh-view course-badge-grid">
+        <span class="course-badge">法社會學專題研究</span>
+        <span class="course-badge">刑事政策專題研究</span>
+        <span class="course-badge">原住民族傳統領域與法律專題研究</span>
+      </div>
+      <div class="en-view course-badge-grid">
+        <span class="course-badge">Seminar on Sociology of Law</span>
+        <span class="course-badge">Seminar on Criminal Policy</span>
+        <span class="course-badge">Seminar on Indigenous Traditional Territory and Law</span>
+      </div>
+    </section>
+
+    <!-- 榮譽與獲獎 -->
+    <section class="weebly-section">
+      <h2 class="section-header">
+        <span class="zh-view">榮譽與獲獎</span>
+        <span class="en-view">Honors & Awards</span>
+      </h2>
+      <div class="zh-view">
+        <div class="pub-entry"><span class="pub-year">2025年</span> 台灣法學會 博士論文獎</div>
+        <div class="pub-entry"><span class="pub-year">2024、2022年</span> 全國律師聯合會 優秀公益律師獎</div>
+        <div class="pub-entry"><span class="pub-year">2024、2022年</span> 台北律師公會 優秀公益律師獎</div>
+        <div class="pub-entry"><span class="pub-year">2022年</span> 財團法人法律扶助基金會台北分會 長期專業貢獻扶助律師獎</div>
+        <div class="pub-entry"><span class="pub-year">2018年</span> 台灣法學會 碩士論文獎</div>
+        <div class="pub-entry"><span class="pub-year">2018年</span> 第5屆法務部司法官學院 犯罪防治論文獎 特優</div>
+      </div>
+      <div class="en-view">
+        <div class="pub-entry"><span class="pub-year">2025</span> Taiwan Law Society Doctoral Dissertation Award</div>
+        <div class="pub-entry"><span class="pub-year">2024, 2022</span> National Bar Association Outstanding Public Interest Lawyer Award</div>
+        <div class="pub-entry"><span class="pub-year">2024, 2022</span> Taipei Bar Association Outstanding Public Interest Lawyer Award</div>
+        <div class="pub-entry"><span class="pub-year">2022</span> Legal Aid Foundation (Taipei Branch) Long-Term Professional Contribution Lawyer Award</div>
+        <div class="pub-entry"><span class="pub-year">2018</span> Taiwan Law Society Master's Thesis Award</div>
+        <div class="pub-entry"><span class="pub-year">2018</span> Crime Prevention Thesis Award (First Prize), Academy for the Judiciary, Ministry of Justice</div>
+      </div>
+    </section>
+
+    <!-- 著作出版 Publications -->
+    <section class="weebly-section" id="publications">
+      <h2 class="section-header">
+        <span class="zh-view">著作與研究出版</span>
+        <span class="en-view">Publications</span>
+      </h2>
+
+      <!-- 專書 -->
+      <h3 class="sub-header">
+        <span class="zh-view">專書 (Books)</span>
+        <span class="en-view">Books</span>
+      </h3>
+      <div class="pub-entry">
+        <span class="pub-year">2024</span> 王曉丹、<strong>林俊儒</strong>、黃翊，《透視司法工作：一線視角下的負擔課題與管理優化對策》，台北：司法院。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2023</span> <strong>林俊儒</strong>主編及合著，《用藥少年：寫給老師的校園法規與輔導實務》（ISBN: 978-626-366-229-2），台北：五南圖書出版。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2022</span> 何萬順、蔣侃學、<strong>林俊儒</strong>、何姵萱，《金玉其外：大學英檢畢業門檻的反思》（ISBN: 978-986-147-983-5），台北：文鶴出版社。
+      </div>
+
+      <!-- 專書篇章 -->
+      <h3 class="sub-header">
+        <span class="zh-view">專書篇章 (Book Chapters)</span>
+        <span class="en-view">Book Chapters</span>
+      </h3>
+      <div class="pub-entry">
+        <span class="pub-year">2025</span> 柯哲瑜、<strong>林俊儒</strong>，〈原住民族健康法使用指南〉，收錄於《翻轉不平等：《原住民族健康法》教戰手冊》（ISBN: 9786269761623），頁 10-24，台北：基地文化出版有限公司。
+      </div>
+
+      <!-- 期刊論文 -->
+      <h3 class="sub-header">
+        <span class="zh-view">期刊論文 (Journal Articles)</span>
+        <span class="en-view">Journal Articles</span>
+      </h3>
+      <div class="pub-entry">
+        <span class="pub-year">2025</span> 王曉丹、<strong>林俊儒</strong>，〈法律中的社會事實：原住民族狩獵治理的法律技術〉，《國立臺灣大學法學論叢》（已接受刊登）。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2025</span> 范耕維、<strong>林俊儒</strong>，〈初探臺灣原住民族刑事文化抗辯的適用與意義：以花蓮地方法院實證研究為起點〉，《中研院法學期刊》，第36期，頁 287-394。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024</span> Fan, Keng-Wei, & <strong>Jun-Ru Lin</strong>, “Eliminate structural injustices or Perpetuate it: Indigenous Peoples and Transitional Justice in Criminal Court System of Taiwan,” <em>International Journal of Transitional Justice</em>, 18(2), 218-236.
+        <span class="badge badge-ssci">SSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024</span> <strong>林俊儒</strong>，〈施用毒品者處遇的病犯體制：大法庭與刑事政策相互形塑的啟示與檢討〉，《國立臺灣大學法學論叢》，第53卷第4期，頁 1021-1076。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024</span> <strong>林俊儒</strong>，〈刑事司法對於藥物輔助處遇的限制─美國身心障礙者法案如何促進法律與文化變遷〉，《月旦醫事法報告》，第95期，頁 56-67。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024</span> <strong>林俊儒</strong>，〈施用毒品者處遇裁量的正當程序課題初探〉，《月旦律評》，第25期，頁 128-135。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2023</span> 柯哲瑜、<strong>林俊儒</strong>，〈原住民族健康法的立法倡議與行動〉，《月旦醫事法報告》，第85期，頁 17-32。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2023</span> <strong>林俊儒</strong>，〈「供出毒品來源」供述證據補強法則之檢證─以販賣毒品既遂案件為中心〉，《法律扶助與社會》，第11期，頁 1-38。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2022</span> 謝如媛、<strong>林俊儒</strong>，〈多元複合的假釋制度─美國假釋制度的考察與反思〉，《政大法學評論》，第170期，頁 1-53。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2022</span> <strong>林俊儒</strong>，〈再犯認定、處遇等同性與機關分工─從大法庭裁定觀察毒品施用者處遇的法理發展與運作情形〉，《法律扶助與社會》，第8期，頁 197-230。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2021</span> 何萬順、蔡介文、<strong>林俊儒</strong>、葉佳明，〈學業退學制度是否合理妥適？實證研究的證據〉，《當代教育研究季刊》，第29卷第3期，頁 81-119。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2020</span> 林昆翰、<strong>林俊儒</strong>、何萬順，〈大學零學分制度的批判與反思〉，《課程與教學季刊》，第23卷第4期，頁 233-256。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2020</span> <strong>林俊儒</strong>，〈減刑規定與罪刑相當原則：從釋字第790號反思重刑化的毒品政策〉，《月旦醫事法報告》，第45期，頁 17-28。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2019</span> 何萬順、<strong>林俊儒</strong>、林昆翰，〈從「大學以教學為目的」之憲法意涵論畢業條件的「品字標準」：以最高行政法院107年判字第488號政大英檢門檻案為中心〉，《教育政策論壇》，第22卷第4期，頁 1-22。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2019</span> <strong>林俊儒</strong>、林昆翰、何萬順，〈論「通過／不通過制」在大學教育的誤用與重塑〉，《教育研究集刊》，第65卷第3期，頁 65-89。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2019</span> <strong>林俊儒</strong>，〈毒品法庭的制度內涵與爭議檢討〉，《犯罪與刑事司法》，第31期，頁 35-70。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2018</span> 何萬順、<strong>林俊儒</strong>，〈大學自治還是教育外包？簡評高等行政法院106年度訴字第169號政大英語畢業門檻之判決〉，《全國律師》，第105-114頁。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2017</span> 何萬順、<strong>林俊儒</strong>，〈大學學業退學制度的批判與反思〉，《教育研究集刊》，第63卷第3期，頁 77-106。
+        <span class="badge badge-tssci">TSSCI</span>
+      </div>
+    </section>
+
+    <!-- 研討會發表 Conferences -->
+    <section class="weebly-section" id="conferences">
+      <h2 class="section-header">
+        <span class="zh-view">研討會論文</span>
+        <span class="en-view">Conference Presentations</span>
+      </h2>
+      <div class="pub-entry">
+        <span class="pub-year">2026.09</span> 林俊儒、王曉丹，〈在自然計劃裡找回巨人？：國家公園的法律治理與共管機制〉，台灣法律與社會學會第二屆年會，台北。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2026.03</span> 林俊儒，〈治療式司法的限制與展望：以施用毒品者處遇的程序規制為中心〉，2026台灣刑事法學會刑事法青年論壇（十一），台北。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2026.01</span> 林俊儒、王曉丹、柯哲瑜，〈太魯閣族與國家公園共管機制的空間實作與限制〉，「東遷史下的太魯閣族傳統領域與土地法制的再思考」座談，花蓮。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2025.11</span> 林俊儒，〈刑事司法的案件流程管理：以地方法院審查庭為中心〉，台灣法律與社會學會成立大會暨第一屆年會，台北。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2025.11</span> 林俊儒，〈原住民族法律服務的文化安全：以刑事司法系統為中心〉，第十二屆原住民族傳統習慣與國家法制研討會，台北。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2025.09</span> 林俊儒，〈原住民族諮商同意權：複數部落的規範與實務〉，2025年東亞環境問題研究會年度研討會，花蓮。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2025.05</span> Fan, Keng-Wei, Ho, Han-Wei, & Lin, Jun Ru, “From Cultural Convergence to the Unjust Production of Cultural Stereotype: An Empirical Study on How Taiwan's Criminal Court System Addresses Indigenous Cultural Defenses,” Law and Society Association (LSA) Annual Meeting, Chicago, USA.
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2025.05</span> 范耕維、何漢葳、林俊儒，〈原住民族文化權利及正義的實現？──從實質法治觀省思台灣司法系統對文化衝突案件的論罪與科刑〉，台灣法理學會2025年學術研討會，台北。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024.11</span> 王曉丹、林俊儒，〈誰在製作法律：法律技術如何形塑原住民族主體與狩獵權〉，「原住民族法的研究：典範與轉型」學術研討會，花蓮。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2024.07</span> Fan, Keng-Wei, & Lin, Jun-Ru, “Exploring Indigenous Cultural Defense Dynamics in Taiwan: An Empirical Analysis,” Asian Law and Economics Association (AsLEA) Annual Conference, Tainan.
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2023.11</span> Lin, Jun-Ru, “Access to What? Rethinking Indigenous Criminal Legal Aid in Taiwan,” Pacific Neighborhood Consortium (PNC), Okinawa, Japan.
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2023.10</span> 林俊儒，〈原住民族「近用」刑事司法？－刑事程序早期介入措施的實證研究反思〉，第十屆原住民族傳統習慣與國家法制研討會，台北。
+      </div>
+      <div class="pub-entry">
+        <span class="pub-year">2022.12</span> Fan, Keng-Wei, Ho, Han-Wei, & Lin, Jun-Ru, “Equity Factors in Drug Trafficking Sentencing,” 2nd Conference on Empirical Legal Studies in Asia (CELSA), Taipei.
+      </div>
+    </section>
+
+    <!-- 專業學術服務經歷 Professional Academic Service -->
+    <section class="weebly-section" id="service">
+      <h2 class="section-header">
+        <span class="zh-view">專業學術服務經歷</span>
+        <span class="en-view">Professional & Academic Service</span>
+      </h2>
+      <div class="service-grid">
+        <div class="service-box">
+          <div class="service-org">台灣法律與社會學會</div>
+          <div class="service-role">秘書長</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">全國律師聯合會 犯罪被害人權益保障委員會</div>
+          <div class="service-role">委員</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">全國律師聯合會 原住民族法制委員會</div>
+          <div class="service-role">委員</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">全國律師聯合會 人權保護委員會</div>
+          <div class="service-role">委員</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">台北律師公會 犯罪被害人保護委員會</div>
+          <div class="service-role">委員</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">財團法人法律扶助基金會 刑事程序法委員會</div>
+          <div class="service-role">委員</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">財團法人民間司法改革基金會</div>
+          <div class="service-role">常務執行委員</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">台灣太魯閣族自治協會</div>
+          <div class="service-role">法律顧問</div>
+        </div>
+        <div class="service-box">
+          <div class="service-org">秀林鄉太魯閣族獵人協會</div>
+          <div class="service-role">法律顧問</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 聯絡資訊 Contact Information -->
+    <section class="weebly-section" id="contact">
+      <h2 class="section-header">
+        <span class="zh-view">聯絡資訊</span>
+        <span class="en-view">Contact Information</span>
+      </h2>
+      <div class="contact-card-container">
+        <div class="contact-card">
+          <h4>服務單位</h4>
+          <p>
+            <strong>國立東華大學 法律學系</strong><br>
+            Department of Law, National Dong Hwa University
+          </p>
+        </div>
+        <div class="contact-card">
+          <h4>研究室與聯絡電話</h4>
+          <p>
+            研究室：人社二館 A419<br>
+            公務電話：(03) 890-5668<br>
+            傳真：(03) 865-1899
+          </p>
+        </div>
+        <div class="contact-card">
+          <h4>電子信箱</h4>
+          <p>
+            <a href="mailto:aaron@gms.ndhu.edu.tw">aaron@gms.ndhu.edu.tw</a>
+          </p>
+        </div>
+        <div class="contact-card">
+          <h4>地址</h4>
+          <p>
+            974301 花蓮縣壽豐鄉志學村大學路二段一號<br>
+            No. 1, Sec. 2, Da Hsueh Rd., Shoufeng, Hualien 974301, Taiwan
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 頁尾 -->
+  <footer class="weebly-footer">
+    <p>&copy; 2026 林俊儒 Jun-Ru Lin. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let isEnglish = false;
+    function toggleLanguage() {
+      isEnglish = !isEnglish;
+      const zhElements = document.querySelectorAll('.zh-view');
+      const enElements = document.querySelectorAll('.en-view');
+      const langBtn = document.querySelector('.lang-toggle-btn');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      if (isEnglish) {
+        zhElements.forEach(el => el.style.display = 'none');
+        enElements.forEach(el => el.style.display = 'block');
+        langBtn.textContent = '切換至中文';
+        navLinks.forEach(el => el.textContent = el.getAttribute('data-en'));
+      } else {
+        zhElements.forEach(el => el.style.display = 'block');
+        enElements.forEach(el => el.style.display = 'none');
+        langBtn.textContent = 'Switch to English';
+        navLinks.forEach(el => el.textContent = el.getAttribute('data-zh'));
+      }
+    }
+  </script>
+</body>
+</html>
