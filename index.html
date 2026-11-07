@@ -444,8 +444,8 @@
       background: #ffffff;
       border-radius: 10px;
       width: 100%;
-      max-width: 820px;
-      max-height: 90vh;
+      max-width: 860px;
+      max-height: 92vh;
       display: flex;
       flex-direction: column;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
@@ -488,44 +488,39 @@
     .modal-close-icon:hover {
       color: #1e293b;
     }
-    .modal-chips-bar {
-      padding: 0.75rem 1.6rem;
-      background: #ffffff;
-      border-bottom: 1px solid #f1f5f9;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-    }
-    .meta-chip {
-      font-size: 0.82rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      background: #f1f5f9;
-      color: #334155;
-      border: 1px solid #e2e8f0;
-      font-weight: 500;
-    }
-    .meta-chip.highlight {
-      background: #eff6ff;
-      color: var(--color-accent);
-      border-color: #bfdbfe;
-      font-weight: 600;
-    }
+    
     .modal-scroll-body {
       padding: 1.5rem 1.6rem;
       overflow-y: auto;
-      font-size: 0.94rem;
-      line-height: 1.72;
+      font-size: 0.93rem;
+      line-height: 1.75;
       color: #334155;
     }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.2rem;
+      font-size: 0.88rem;
+    }
+    .info-table td {
+      border: 1px solid #e2e8f0;
+      padding: 0.45rem 0.75rem;
+    }
+    .info-table td.label-cell {
+      background: #f8fafc;
+      font-weight: 600;
+      color: var(--color-primary);
+      width: 18%;
+    }
+
     .modal-section-h {
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--color-primary);
-      margin: 1.3rem 0 0.5rem 0;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid #f1f5f9;
+      margin: 1.4rem 0 0.5rem 0;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -537,7 +532,7 @@
       width: 100%;
       border-collapse: collapse;
       margin: 0.6rem 0 1rem 0;
-      font-size: 0.88rem;
+      font-size: 0.87rem;
     }
     .modal-schedule-table th, .modal-schedule-table td {
       border: 1px solid #e2e8f0;
@@ -551,16 +546,27 @@
       color: #1e293b;
     }
     .modal-schedule-table td.week-col {
-      width: 60px;
+      width: 55px;
       text-align: center;
       font-weight: 600;
       color: var(--color-accent);
     }
     .modal-schedule-table td.date-col {
-      width: 80px;
+      width: 75px;
       font-weight: 500;
       color: #475569;
     }
+    .modal-schedule-table td.remark-col {
+      width: 110px;
+      color: #64748b;
+    }
+
+    .text-block {
+      white-space: pre-line;
+      line-height: 1.8;
+      margin-bottom: 0.6rem;
+    }
+
     .modal-footer-bar {
       padding: 0.9rem 1.6rem;
       border-top: 1px solid var(--color-border);
@@ -610,6 +616,7 @@
       .course-card-grid { grid-template-columns: 1fr; }
       .modal-card { max-height: 94vh; }
       .modal-header-bar, .modal-scroll-body, .modal-footer-bar { padding: 1rem; }
+      .info-table td.label-cell { width: 30%; }
     }
   </style>
 </head>
@@ -651,7 +658,7 @@
           <h1>林俊儒</h1>
           <div class="affiliation">國立東華大學法律學系 專任助理教授</div>
           <p class="bio">
-            目前任職於國立東華大學法律學系，研究領域為刑事政策、法律與社會、原住民族法。投入學術研究之前，曾為律師，有6年執業經歷，並以刑事辯護、策略性訴訟為主。亦曾投入NGO 工作，從事立法遊說與公民倡議。
+            任職於國立東華大學法律學系，研究領域為刑事政策、法律與社會、原住民族法。在進入學術機構之前，有6年執業律師經驗，並投入刑事辯護、策略性訴訟。亦曾於NGO 工作，從事立法遊說、公民倡議。
           </p>
         </div>
         <div class="en-view">
@@ -735,7 +742,7 @@
       </table>
     </section>
 
-    <!-- 授課課程 Courses (依 114-1、114-2、115-1 時序排列) -->
+    <!-- 授課課程 Courses (依 115-1 -> 114-2 -> 114-1 由新到舊排列) -->
     <section class="weebly-section" id="courses">
       <h2 class="section-header">
         <span class="zh-view">授課課程</span>
@@ -749,76 +756,7 @@
       </h3>
       <div class="course-card-grid">
 
-        <!-- 114/1 犯罪學 -->
-        <div class="course-card">
-          <div>
-            <div class="course-meta-tags">
-              <span class="course-tag-sem">114/1</span>
-              <span class="course-tag-code">DOL 20300</span>
-              <span class="course-tag-code">2.0 學分</span>
-            </div>
-            <div class="course-card-title zh-view">犯罪學</div>
-            <div class="course-card-title en-view">Criminology</div>
-            <div class="course-card-sub zh-view">法律學系 學二（學程）</div>
-            <div class="course-card-sub en-view">Dept. of Law, 2nd Year</div>
-          </div>
-          <div class="course-card-actions">
-            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('criminology')">
-              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
-            </button>
-            <a href="syllabi/114-1犯罪學.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
-              📄 PDF
-            </a>
-          </div>
-        </div>
-
-        <!-- 114/2 法社會學（法理學） -->
-        <div class="course-card">
-          <div>
-            <div class="course-meta-tags">
-              <span class="course-tag-sem">114/2</span>
-              <span class="course-tag-code">DOL 40030</span>
-              <span class="course-tag-code">2.0 學分</span>
-            </div>
-            <div class="course-card-title zh-view">法社會學（法理學）</div>
-            <div class="course-card-title en-view">Sociology of Law / Jurisprudence</div>
-            <div class="course-card-sub zh-view">法律學系 學四（學程）</div>
-            <div class="course-card-sub en-view">Dept. of Law, 4th Year</div>
-          </div>
-          <div class="course-card-actions">
-            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('sociology-of-law')">
-              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
-            </button>
-            <a href="syllabi/114-2法社會學.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
-              📄 PDF
-            </a>
-          </div>
-        </div>
-
-        <!-- 114/2 原住民族傳統領域與法律 -->
-        <div class="course-card">
-          <div>
-            <div class="course-meta-tags">
-              <span class="course-tag-sem">114/2</span>
-              <span class="course-tag-code">DOL 30140</span>
-              <span class="course-tag-code">2.0 學分</span>
-            </div>
-            <div class="course-card-title zh-view">原住民族傳統領域與法律</div>
-            <div class="course-card-title en-view">Aboriginal Title and the State's Laws</div>
-            <div class="course-card-sub zh-view">法律學系 學三（學程）</div>
-            <div class="course-card-sub en-view">Dept. of Law, 3rd Year</div>
-          </div>
-          <div class="course-card-actions">
-            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('indigenous-territory')">
-              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
-            </button>
-            <a href="syllabi/114-2原住民族傳統領域與法律.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
-              📄 PDF
-            </a>
-          </div>
-        </div>
-
-        <!-- 115/1 刑事訴訟法一 -->
+        <!-- 1. 115/1 刑事訴訟法一 -->
         <div class="course-card">
           <div>
             <div class="course-meta-tags">
@@ -832,7 +770,7 @@
             <div class="course-card-sub en-view">Dept. of Law, 3rd Year</div>
           </div>
           <div class="course-card-actions">
-            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('crim-proc-1')">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('crim-proc-1-1151')">
               📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
             </button>
             <a href="syllabi/115-1刑事訴訟法一.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
@@ -841,7 +779,7 @@
           </div>
         </div>
 
-        <!-- 115/1 原住民族法各論 -->
+        <!-- 2. 115/1 原住民族法各論 -->
         <div class="course-card">
           <div>
             <div class="course-meta-tags">
@@ -855,7 +793,7 @@
             <div class="course-card-sub en-view">Dept. of Law, 3rd Year</div>
           </div>
           <div class="course-card-actions">
-            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('indigenous-specific')">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('indigenous-specific-1151')">
               📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
             </button>
             <a href="syllabi/115-1原住民族法各論.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
@@ -864,7 +802,122 @@
           </div>
         </div>
 
-        <!-- 籌備中：毒品政策與法律 -->
+        <!-- 3. 114/2 刑事訴訟法二 -->
+        <div class="course-card">
+          <div>
+            <div class="course-meta-tags">
+              <span class="course-tag-sem">114/2</span>
+              <span class="course-tag-code">DOL 30250</span>
+              <span class="course-tag-code">3.0 學分</span>
+            </div>
+            <div class="course-card-title zh-view">刑事訴訟法二</div>
+            <div class="course-card-title en-view">Criminal Procedure Law II</div>
+            <div class="course-card-sub zh-view">法律學系 學三（學程）</div>
+            <div class="course-card-sub en-view">Dept. of Law, 3rd Year</div>
+          </div>
+          <div class="course-card-actions">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('crim-proc-2-1142')">
+              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
+            </button>
+            <a href="syllabi/114-2刑事訴訟法二.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
+              📄 PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. 114/2 法社會學（法理學） -->
+        <div class="course-card">
+          <div>
+            <div class="course-meta-tags">
+              <span class="course-tag-sem">114/2</span>
+              <span class="course-tag-code">DOL 40030</span>
+              <span class="course-tag-code">2.0 學分</span>
+            </div>
+            <div class="course-card-title zh-view">法社會學（法理學）</div>
+            <div class="course-card-title en-view">Sociology of Law / Jurisprudence</div>
+            <div class="course-card-sub zh-view">法律學系 學四（學程）</div>
+            <div class="course-card-sub en-view">Dept. of Law, 4th Year</div>
+          </div>
+          <div class="course-card-actions">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('sociology-of-law-1142')">
+              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
+            </button>
+            <a href="syllabi/114-2法社會學.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
+              📄 PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. 114/2 原住民族傳統領域與法律 -->
+        <div class="course-card">
+          <div>
+            <div class="course-meta-tags">
+              <span class="course-tag-sem">114/2</span>
+              <span class="course-tag-code">DOL 30140</span>
+              <span class="course-tag-code">2.0 學分</span>
+            </div>
+            <div class="course-card-title zh-view">原住民族傳統領域與法律</div>
+            <div class="course-card-title en-view">Aboriginal Title and the State's Laws</div>
+            <div class="course-card-sub zh-view">法律學系 學三（學程）</div>
+            <div class="course-card-sub en-view">Dept. of Law, 3rd Year</div>
+          </div>
+          <div class="course-card-actions">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('indigenous-territory-1142')">
+              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
+            </button>
+            <a href="syllabi/114-2原住民族傳統領域與法律.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
+              📄 PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. 114/1 刑事訴訟法一 -->
+        <div class="course-card">
+          <div>
+            <div class="course-meta-tags">
+              <span class="course-tag-sem">114/1</span>
+              <span class="course-tag-code">DOL 20030</span>
+              <span class="course-tag-code">3.0 學分</span>
+            </div>
+            <div class="course-card-title zh-view">刑事訴訟法一</div>
+            <div class="course-card-title en-view">Criminal Procedure Law I</div>
+            <div class="course-card-sub zh-view">法律學系 學三（學程）</div>
+            <div class="course-card-sub en-view">Dept. of Law, 3rd Year</div>
+          </div>
+          <div class="course-card-actions">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('crim-proc-1-1141')">
+              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
+            </button>
+            <a href="syllabi/114-1刑事訴訟法一.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
+              📄 PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. 114/1 犯罪學 -->
+        <div class="course-card">
+          <div>
+            <div class="course-meta-tags">
+              <span class="course-tag-sem">114/1</span>
+              <span class="course-tag-code">DOL 20300</span>
+              <span class="course-tag-code">2.0 學分</span>
+            </div>
+            <div class="course-card-title zh-view">犯罪學</div>
+            <div class="course-card-title en-view">Criminology</div>
+            <div class="course-card-sub zh-view">法律學系 學二（學程）</div>
+            <div class="course-card-sub en-view">Dept. of Law, 2nd Year</div>
+          </div>
+          <div class="course-card-actions">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('criminology-1141')">
+              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
+            </button>
+            <a href="syllabi/114-1犯罪學.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
+              📄 PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. 籌備中：毒品政策與法律 -->
         <div class="course-card">
           <div>
             <div class="course-meta-tags">
@@ -891,30 +944,7 @@
       </h3>
       <div class="course-card-grid">
 
-        <!-- 114/2 原住民族傳統領域與法律專題研究 -->
-        <div class="course-card">
-          <div>
-            <div class="course-meta-tags">
-              <span class="course-tag-sem">114/2</span>
-              <span class="course-tag-code">FEL 58220</span>
-              <span class="course-tag-code">2.0 學分</span>
-            </div>
-            <div class="course-card-title zh-view">原住民族傳統領域與法律專題研究</div>
-            <div class="course-card-title en-view">Seminar on Indigenous Traditional Territorial Land and Laws</div>
-            <div class="course-card-sub zh-view">法律學系 碩士班（選修）</div>
-            <div class="course-card-sub en-view">Master's Program, Dept. of Law</div>
-          </div>
-          <div class="course-card-actions">
-            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('seminar-indigenous-territory')">
-              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
-            </button>
-            <a href="syllabi/114-2原住民族傳統領域與法律專題研究.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
-              📄 PDF
-            </a>
-          </div>
-        </div>
-
-        <!-- 115/1 法社會學專題研究 -->
+        <!-- 1. 115/1 法社會學專題研究 -->
         <div class="course-card">
           <div>
             <div class="course-meta-tags">
@@ -928,7 +958,7 @@
             <div class="course-card-sub en-view">Master's Program, Dept. of Law</div>
           </div>
           <div class="course-card-actions">
-            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('seminar-sociology-law')">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('seminar-sociology-law-1151')">
               📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
             </button>
             <a href="syllabi/115-1法社會學專題研究.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
@@ -937,7 +967,30 @@
           </div>
         </div>
 
-        <!-- 籌備中：刑事政策專題研究 -->
+        <!-- 2. 114/2 原住民族傳統領域與法律專題研究 -->
+        <div class="course-card">
+          <div>
+            <div class="course-meta-tags">
+              <span class="course-tag-sem">114/2</span>
+              <span class="course-tag-code">FEL 58220</span>
+              <span class="course-tag-code">2.0 學分</span>
+            </div>
+            <div class="course-card-title zh-view">原住民族傳統領域與法律專題研究</div>
+            <div class="course-card-title en-view">Seminar on Indigenous Traditional Territorial Land and Laws</div>
+            <div class="course-card-sub zh-view">法律學系 碩士班（選修）</div>
+            <div class="course-card-sub en-view">Master's Program, Dept. of Law</div>
+          </div>
+          <div class="course-card-actions">
+            <button type="button" class="btn-syllabus-preview" onclick="openSyllabusModal('seminar-indigenous-territory-1142')">
+              📖 <span class="zh-view">課綱詳情</span><span class="en-view">Syllabus</span>
+            </button>
+            <a href="syllabi/114-2原住民族傳統領域與法律專題研究.pdf" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf" title="另開/下載 PDF 原件">
+              📄 PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. 籌備中：刑事政策專題研究 -->
         <div class="course-card">
           <div>
             <div class="course-meta-tags">
@@ -1240,7 +1293,6 @@
         </div>
         <button class="modal-close-icon" onclick="closeSyllabusModal()" aria-label="Close">&times;</button>
       </div>
-      <div class="modal-chips-bar" id="modalChipsBar"></div>
       <div class="modal-scroll-body" id="modalScrollBody"></div>
       <div class="modal-footer-bar">
         <a id="modalPdfLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-syllabus-pdf">
@@ -1259,337 +1311,588 @@
   <script>
     let isEnglish = false;
 
-    // 課綱資料庫（對應檢附之7門PDF詳細內容）
+    // 課綱完整全文資料庫（完整收錄 PDF 所有文字）
     const syllabusDatabase = {
-      "criminology": {
-        zh: {
-          title: "犯罪學",
-          enTitle: "Criminology",
-          sem: "114 學年度第 1 學期 (114/1)",
-          code: "DOL 20300",
-          credits: "2.0 學分 / 2.0 小時",
-          dept: "法律學系 學二（學程）",
-          desc: "傳統犯罪學知識建構來自特定視角與價值觀，教學時有必要讓不同種族、性別、階級的聲音得以展現，克服犯罪學知識的不平等，培養批判性思維與犯罪學想像力。結合文學、音樂、影視作品與新聞案例探討。前半段專注理論講授；後半段開展批判觀點，探討毒品犯罪、少年犯罪、犯罪被害、藥物處遇與監獄。（非修課者禁止旁聽）",
-          objectives: "理解犯罪學理論、分析犯罪成因，批判性檢討犯罪定義與犯罪社會關係，提出自身政策觀點。",
-          grading: [
-            "平時成績 (10%)：不以出席評量（不點名），以課程發言與參與程度評量。",
-            "期中報告 (30%)：以犯罪學理論運用為題（2500-3000字）。",
-            "期末考試 (40%)：選擇題與申論題應試。",
-            "作業成績 (20%)：每講次均有題目，學生任擇 4 題撰寫心得報告（400-600字/篇，2025/12/31前繳交）。"
-          ],
-          schedule: [
-            { w: "1", d: "9/10", t: "課程簡介（說明教學理念、規劃與評分方式）" },
-            { w: "2", d: "9/17", t: "【第1講】犯罪與犯罪學：視角的轉換" },
-            { w: "3", d: "9/24", t: "【第2講】「所有生物都會感到恐懼？」：古典理論、理性選擇理論（建議觀賞《黑暗騎士三部曲》）" },
-            { w: "4", d: "10/1", t: "【第3講】天生犯罪人？：犯罪生物理論、犯罪心理理論（建議觀賞《發條橘子》）" },
-            { w: "5", d: "10/8", t: "【第4講】犯罪、被害與監控：日常活動理論（建議觀賞《漢娜的遺言》）" },
-            { w: "6", d: "10/15", t: "【第5講】「你可知罪啊？」：社會解組理論、迷亂理論（建議觀賞《天注定》、《國定殺戮日》）" },
-            { w: "7", d: "10/22", t: "【第6講】跟「壞朋友」混在一起：差異接觸、社會學習、次文化理論（建議觀賞《辣妹過招》）" },
-            { w: "8", d: "10/29", t: "【第7講】「把他當垃圾看待，會得到什麼？」：標籤理論、批判犯罪學（建議觀賞《小丑》、《大佛普拉斯》）" },
-            { w: "9", d: "11/5", t: "期中考試週：繳交期中報告（不上課）" },
-            { w: "10", d: "11/12", t: "全校運動會（停課）" },
-            { w: "11", d: "11/19", t: "【第8講】犯罪學知識的「倒讀」：種族、性別與階級（建議觀賞《令人討厭的松子的一生》）" },
-            { w: "12", d: "11/26", t: "【第9講】毒品犯罪（建議觀賞《冰毒》、《私法拘留》）" },
-            { w: "13", d: "12/3", t: "【第10講】少年犯罪［專家講座］（建議觀賞《少年吔，安啦》、《徬徨少年時》）" },
-            { w: "14", d: "12/10", t: "【第11講】犯罪被害（建議觀賞《儘管如此也要活下去》）" },
-            { w: "15", d: "12/17", t: "【第12講】社會內處遇：以藥物處遇為例（建議觀賞《八月三十一日，我在奧斯陸》）" },
-            { w: "16", d: "12/24", t: "【第13講】機構內處遇：以監獄執行為例（建議觀賞《刺激1995》）" },
-            { w: "17", d: "12/31", t: "期末考試週：進行期末考試" },
-            { w: "18", d: "1/7", t: "彈性教學安排（原則不上課）" }
-          ],
-          textbooks: "許春金《犯罪學》(2017)、周愫嫻與曹立群《犯罪學理論及其實證》(2007)、蔡德輝與楊士隆《犯罪學》(2025)、Shereen Hassan et al., Introduction to Criminology (Open Textbook OER, 2023)。"
+      // 1. 115-1 刑事訴訟法一
+      "crim-proc-1-1151": {
+        meta: {
+          nameZh: "刑事訴訟法一", nameEn: "Criminal Procedure Law I", sem: "115/1", code: "DOL 20030",
+          dept: "法律學系", year: "學三", type: "學程 Program", credits: "3.0/3.0", instructor: "林俊儒",
+          prereq: "刑法總則一、刑法總則二、刑法分則"
         },
-        pdf: "syllabi/114-1犯罪學.pdf"
-      },
-
-      "sociology-of-law": {
-        zh: {
-          title: "法社會學（法理學）",
-          enTitle: "Jurisprudence / Sociology of Law",
-          sem: "114 學年度第 2 學期 (114/2)",
-          code: "DOL 40030",
-          credits: "2.0 學分 / 2.0 小時",
-          dept: "法律學系 學四（學程）",
-          desc: "基礎法學入門課程，著重法律規範與社會之關係，先帶領學生探索自然法與法實證主義，接著深入法律社會機能，以法律與社會領域為核心。以臺灣本土案例出發，講授法律民族誌、法律多元、法律技術、法意識、法律動員與田野調查方法。",
-          objectives: "掌握基礎法學理論梗概，發展批判與經驗應用能力，回應當代法律與社會的實踐需求。",
-          grading: [
-            "課程平時表現 (10%)：不點名，以發言次數計。",
-            "期中書面報告 (50%)：個人研究計畫書。",
-            "期末口頭參與 (30%)：個人研究發表（8分鐘簡報 + 4分鐘現場問答）。",
-            "期末書面報告 (10%)：根據提問回饋修正後之成果報告（以追蹤修訂標註）。"
-          ],
-          schedule: [
-            { w: "1", d: "2/25", t: "課程簡介" },
-            { w: "2", d: "3/4", t: "【第1講】法理學視野中的「法律與社會」" },
-            { w: "3", d: "3/11", t: "【第2講】如何「做」田野：田野方法論" },
-            { w: "4", d: "3/18", t: "【第3講】法律多元 (Legal Pluralism)" },
-            { w: "5", d: "3/25", t: "【第4講】法律職業 (Legal Profession)" },
-            { w: "6", d: "4/1", t: "【第5講】法律技術 (Legal Technicality)" },
-            { w: "7", d: "4/8", t: "【第6講】法意識 (Legal Consciousness)" },
-            { w: "8", d: "4/15", t: "【第7講】法律動員 (Legal Mobilization)" },
-            { w: "9", d: "4/22", t: "期中考試週：繳交個人研究計畫（不上課，自主學習）" },
-            { w: "10", d: "4/29", t: "【第8講】法律與本體論 (Law and Ontology)" },
-            { w: "11", d: "5/6", t: "教師出國公差（不上課，另於學生報告週延長補課）" },
-            { w: "12", d: "5/13", t: "法律與社會視野中的國民法官（專題演講）" },
-            { w: "13", d: "5/20", t: "【學生口頭研究發表 I】" },
-            { w: "14", d: "5/27", t: "【學生口頭研究發表 II】" },
-            { w: "15", d: "6/3", t: "【學生口頭研究發表 III】" },
-            { w: "16", d: "6/10", t: "【學生口頭研究發表 IV】" },
-            { w: "17", d: "6/17", t: "期末考試週：繳交期末書面報告（不上課）" }
-          ],
-          textbooks: "教師自製課程講義與指定文獻（請於線上教學平台下載）。"
-        },
-        pdf: "syllabi/114-2法社會學.pdf"
-      },
-
-      "indigenous-territory": {
-        zh: {
-          title: "原住民族傳統領域與法律",
-          enTitle: "Aboriginal Title and the State's Laws",
-          sem: "114 學年度第 2 學期 (114/2)",
-          code: "DOL 30140",
-          credits: "2.0 學分 / 2.0 小時",
-          dept: "法律學系 學三（學程）",
-          desc: "以原住民族土地法律史為基礎，核心探討傳統領域概念與法制、諮商同意權、原住民保留地政策、自然資源共管機制、自主管理與文化抗辯。學生需撰寫「法律因應策略報告」，實踐處理原住民族土地與法律議題之專業能力。",
-          objectives: "聚焦原住民族土地權利法律史，以轉型正義視角理解法制與政策，具備處理當代原住民族傳統領域課題的能力。",
-          grading: [
-            "課程平時表現 (10%)：課堂參與度評量。",
-            "期中書面報告 (50%)：臺灣案例法律因應策略報告（4000-6000字，需引用上課簡報與證明文獻）。",
-            "課堂發表參與 (20%)：15分鐘口頭報告 + 5分鐘現場提問回饋。",
-            "期末書面報告 (20%)：以追蹤修訂標出回饋修改處之成果報告。"
-          ],
-          schedule: [
-            { w: "1", d: "2/26", t: "課程簡介" },
-            { w: "2", d: "3/5", t: "【第1講】原住民族土地的法律史" },
-            { w: "3", d: "3/12", t: "【第2講】傳統領域概念與法制" },
-            { w: "4", d: "3/19", t: "【第3講】諮商同意權法制運作" },
-            { w: "5", d: "3/26", t: "【第4講】複數部落諮商同意權" },
-            { w: "6", d: "4/2", t: "【第5講】原住民保留地政策［專題演講］" },
-            { w: "7", d: "4/9", t: "【第6講】自然資源共同管理" },
-            { w: "8", d: "4/16", t: "【第7講】原住民族文化抗辯" },
-            { w: "9", d: "4/23", t: "期中考試週：期中報告繳交（不上課）" },
-            { w: "10", d: "4/30", t: "【第8講】狩獵自主管理機制" },
-            { w: "11", d: "5/7", t: "教師出國公差（不上課，另行補課）" },
-            { w: "12", d: "5/14", t: "【法律因應策略報告與研議分析】諮商同意權" },
-            { w: "13", d: "5/21", t: "【法律因應策略報告與研議分析】諮商同意權" },
-            { w: "14", d: "5/28", t: "【法律因應策略報告與研議分析】原住民保留地" },
-            { w: "15", d: "6/4", t: "【法律因應策略報告與研議分析】自然資源共同管理" },
-            { w: "16", d: "6/11", t: "【法律因應策略報告與研議分析】原住民族文化抗辯" },
-            { w: "17", d: "6/18", t: "期末考試週：期末報告繳交（不上課）" }
-          ],
-          textbooks: "教師自製課程講義與相關案例裁判文獻（線上教學平台下載）。"
-        },
-        pdf: "syllabi/114-2原住民族傳統領域與法律.pdf"
-      },
-
-      "crim-proc-1": {
-        zh: {
-          title: "刑事訴訟法一",
-          enTitle: "Criminal Procedure Law I",
-          sem: "115 學年度第 1 學期 (115/1)",
-          code: "DOL 20030",
-          credits: "3.0 學分 / 3.0 小時",
-          dept: "法律學系 學三（學程）",
-          desc: "刑法作為犯罪要件及法律效果的實體規範，有賴刑事訴訟法程序規範的實踐，方能使得國家刑罰權的發動取得正當性。刑事訴訟目的不僅在於發現真實，亦需要符合正當程序的要求。上學期課程聚焦訴訟主體與客體、訴訟行為、強制處分與證據法總論之基礎素養。",
-          objectives: "體察刑事訴訟作為國家刑罰權發動的意義與理念，闡釋、運用刑事訴訟法概念解析實務運作，進而駕馭並產生批判能力。",
-          grading: [
-            "平時成績 (10%)：不進行點名，以課程參與程度評量。",
-            "期中考試 (30%)：預計為選擇題測驗，詳情於第一堂課說明。",
-            "期末考試 (40%)：預計為選擇題、申論題測驗，詳情於第一堂課說明。",
-            "作業成績 (20%)：每講次均有題目，學生任擇 4 題撰寫心得報告（400-600字/篇，2026/12/31前繳交）。"
-          ],
-          schedule: [
-            { w: "1", d: "9/9", t: "課程簡介" },
-            { w: "2", d: "9/16", t: "【第1講】刑事訴訟目的、基礎構造、程序流程" },
-            { w: "3", d: "9/23", t: "【第2講】訴訟主體與結構I：法院、檢察官及其輔助機關" },
-            { w: "4", d: "9/30", t: "【第3講】訴訟主體與結構II：被告" },
-            { w: "5", d: "10/7", t: "【第4講】訴訟主體與結構III：辯護人、其他關係人" },
-            { w: "6", d: "10/14", t: "【第5講】訴訟客體與標的" },
-            { w: "7", d: "10/21", t: "【第6講】訴訟關係、要件、訴訟行為" },
-            { w: "8", d: "10/28", t: "【第7講】強制處分總論" },
-            { w: "9", d: "11/4", t: "期中考試週：進行期中考試" },
-            { w: "10", d: "11/11", t: "【第8講】強制處分各論I：傳喚、通知、拘提、逮捕、通緝" },
-            { w: "11", d: "11/18", t: "【第9講】強制處分各論II：羈押、暫行安置、限制出境（海）" },
-            { w: "12", d: "11/25", t: "【第10講】強制處分各論III：搜索、扣押、鑑定留置、身體檢查" },
-            { w: "13", d: "12/2", t: "【第11講】強制處分各論IV：科技偵查" },
-            { w: "14", d: "12/9", t: "【第12講】證據法總論I：基本原則與概念（含傳聞法則）" },
-            { w: "15", d: "12/16", t: "【第13講】證據法總論II：法定證據方法" },
-            { w: "16", d: "12/23", t: "期末考試週：進行期末考試" },
-            { w: "17", d: "12/30", t: "試卷解說、分數釋疑與課程回饋（彈性自主學習與輔導）" }
-          ],
-          textbooks: "林鈺雄《刑事訴訟法》、林俊益《刑事訴訟法概論》、王兆鵬/張明偉/李榮耕《刑事訴訟法》、許澤天《刑事訴訟法》（課堂提供教學簡報與參考資料）。"
-        },
+        desc: "刑法作為犯罪要件及法律效果的實體規範，有賴刑事訴訟法程序規範的實踐，規範個人與國家的權利義務界線，方能使得國家刑罰權的發動取得正當性。根據這項理解，刑事訴訟目的不僅在於發現真實，亦需要符合正當程序的要求，並從這個基礎出發，發展各項基本原則以及法律制度。\n\n上學期課程將先從刑事訴訟作為國家刑罰權發動程序的意義開展，探討追求實體真實時，應如何兼顧正當程序，並且聚焦刑事司法功能，闡釋制度的意義。接著，開展訴訟主體與客體、訴訟行為，以及強制處分、證據法的基礎課題，這些課程內容將是奠定刑事訴訟法素養的基礎。\n\n下學期課程進入動態的刑事訴訟程序，從偵查程序、通常審判、簡易程序、上訴通則與上訴二、三審規範，乃至於抗告、再審、非常上訴程序，也將講授執行程序、協商程序，並概覽國民法官制度。要能夠充分掌握刑事訴訟的動態過程並且活用，這會非常需要學生在上學期課程已經建立良好的基礎。\n\n由於刑事訴訟法抽象且複雜，講授過程會輔以判決案例、新聞時事解說，以提升學生的學習興趣，並能夠對於刑事訴訟法的基本架構有所掌握，進而形成自己的看法，有分析論述的能力。此外，這門課程會提供課程簡報及參考資料，作為學習素材，但仍建議選擇適合自己的教科書閱讀，以提升學習成效。",
+        objectives: "能夠體察刑事訴訟作為國家刑罰權發動的意義與理念，並可以闡釋、運用刑事訴訟法概念，解析實務運作情形，進而駕馭並產生批判能力。",
+        outcomes: [
+          { id: "A", name: "具備專業法律領域及基礎法學知識能力", level: "高度相關" },
+          { id: "B", name: "具關懷弱勢、服務熱誠與社會責任之內涵", level: "—" },
+          { id: "C", name: "具備獨立、理性及批判思考能力", level: "高度相關" },
+          { id: "D", name: "具有探索跨學門議題之能力", level: "—" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "問題導向學習 (PBL)、在地實踐 (Community Practice)、跨界教學 (Transdisciplinary Teaching)",
+        schedule: [
+          { w: "1", d: "9/9", t: "課程簡介", r: "" },
+          { w: "2", d: "9/16", t: "【第1講】刑事訴訟目的、基礎構造、程序流程", r: "" },
+          { w: "3", d: "9/23", t: "【第2講】訴訟主體與結構I：法院、檢察官及其輔助機關", r: "" },
+          { w: "4", d: "9/30", t: "【第3講】訴訟主體與結構II：被告", r: "" },
+          { w: "5", d: "10/7", t: "【第4講】訴訟主體與結構III：辯護人、其他關係人", r: "" },
+          { w: "6", d: "10/14", t: "【第5講】訴訟客體與標的", r: "" },
+          { w: "7", d: "10/21", t: "【第6講】訴訟關係、要件、訴訟行為", r: "" },
+          { w: "8", d: "10/28", t: "【第7講】強制處分總論", r: "" },
+          { w: "9", d: "11/4", t: "進行期中考試", r: "期中考試週" },
+          { w: "10", d: "11/11", t: "【第8講】強制處分各論I：傳喚、通知、拘提、逮捕、通緝", r: "" },
+          { w: "11", d: "11/18", t: "【第9講】強制處分各論II：羈押、暫行安置、限制出境（海）", r: "" },
+          { w: "12", d: "11/25", t: "【第10講】強制處分各論III：搜索、扣押、鑑定留置、身體檢查", r: "" },
+          { w: "13", d: "12/2", t: "【第11講】強制處分各論IV：科技偵查", r: "" },
+          { w: "14", d: "12/9", t: "【第12講】證據法總論I：基本原則與概念（含傳聞法則）", r: "" },
+          { w: "15", d: "12/16", t: "【第13講】證據法總論II：法定證據方法", r: "" },
+          { w: "16", d: "12/23", t: "進行期末考試", r: "期末考試週" },
+          { w: "17", d: "12/30", t: "試卷解說、分數釋疑與課程回饋", r: "彈性自主學習" }
+        ],
+        flexible: "問題討論 (Problem-based Discussion)、自主學習 (Self-directed Learning)。\n備註：本校學期週數自115學年度起調整為17週，為符合1學分18小時之原則，請教師規劃安排彈性教學。",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "10%", method: "口頭發表（課程參與）" },
+          { item: "期中考成績", pct: "30%", method: "測驗會考" },
+          { item: "期末考成績", pct: "40%", method: "測驗會考" },
+          { item: "作業成績", pct: "20%", method: "心得報告" }
+        ],
+        gradingNotes: "(1) 平時成績：不進行點名，以課程參與程度評量。\n(2) 期中考試：預計是選擇題測驗，詳情於第一堂課說明。\n(3) 期末考試：預計是選擇題、申論題測驗，詳情於第一堂課說明。\n(4) 作業成績：每講次均有題目，學生「任擇4題」撰寫心得報告（400-600字/篇）繳交，此部分即為作業成績（2026/12/31前繳交，逾期不計分）。",
+        textbooks: "會提供教學簡報與參考資料（請至東華e學苑下載），但仍建議同學選購適合自己的教科書參照閱讀（非必要）：\n• 林鈺雄，刑事訴訟法(上冊)，新學林。\n• 林鈺雄，刑事訴訟法(下冊)，新學林。\n• 林俊益，刑事訴訟法概論(上)，新學林。\n• 林俊益，刑事訴訟法概論(下)，新學林。\n• 王兆鵬、張明偉、李榮耕，刑事訴訟法(上)，新學林。\n• 王兆鵬、張明偉、李榮耕，刑事訴訟法(下)，新學林。\n• 許澤天，刑事訴訟法，新學林。",
+        remarks: "無",
         pdf: "syllabi/115-1刑事訴訟法一.pdf"
       },
 
-      "indigenous-specific": {
-        zh: {
-          title: "原住民族法各論",
-          enTitle: "Indigenous Law: Specific parts",
-          sem: "115 學年度第 1 學期 (115/1)",
-          code: "DOL 30160",
-          credits: "2.0 學分 / 2.0 小時",
-          dept: "法律學系 學三（學程）",
-          desc: "本課程為原住民族法之進階課程，奠基在總論基礎上。從原住民族批判研究出發，指認法律、歷史與政治經濟殖民關聯。接著從政治參與、自然資源、文化資產、語言發展、教育文化、健康福祉、工作權益、身分法制等八大面向，探索原住民族各項法規範。",
-          objectives: "拓展原住民族法全面觀照，強化總論概念於實務爭點之檢視與批判運用能力。",
-          grading: [
-            "平時成績 (20%)：出席與課堂研討參與。",
-            "期中作業 (30%)：選擇一本文學、電影或文本評析原住民族法精神（3000-5000字，線上繳交）。",
-            "期末考試 (50%)：期末考試應試。"
-          ],
-          schedule: [
-            { w: "1", d: "9/10", t: "課程介紹" },
-            { w: "2", d: "9/17", t: "【第1講】法律、歷史與政治經濟：從原住民族重大歷史事件談起" },
-            { w: "3", d: "9/24", t: "【第2講】如何理解原住民族「法」？" },
-            { w: "4", d: "10/1", t: "【第3講】原住民族的政治參與I：自治、選舉與原民會" },
-            { w: "5", d: "10/8", t: "【第4講】原住民族的政治參與II：部落會議與部落公法人" },
-            { w: "6", d: "10/15", t: "【第5講】自然資源I：馬太鞍溪災後重建專題；【第6講】諮商同意權" },
-            { w: "7", d: "10/22", t: "【第7講】自然資源III：共同管理機制" },
-            { w: "8", d: "10/29", t: "【第8講】原住民族的健康福祉" },
-            { w: "9", d: "11/5", t: "期中考試週：繳交作業（不上課）" },
-            { w: "10", d: "11/12", t: "全校運動會（不上課）" },
-            { w: "11", d: "11/19", t: "專家演講：原住民族教育實務" },
-            { w: "12", d: "11/26", t: "【第9講】原住民族的教育文化" },
-            { w: "13", d: "12/3", t: "【第10講】原住民族的文化資產" },
-            { w: "14", d: "12/10", t: "【第11講】語言發展；【第12講】工作權益" },
-            { w: "15", d: "12/17", t: "【第13講】原住民族的身分法制" },
-            { w: "16", d: "12/24", t: "期末考試週：進行期末考試" },
-            { w: "17", d: "12/31", t: "試卷解說、分數釋疑與課程回饋" }
-          ],
-          textbooks: "教師自行編纂教材，於第一堂課說明後提供修課學生。"
+      // 2. 115-1 原住民族法各論
+      "indigenous-specific-1151": {
+        meta: {
+          nameZh: "原住民族法各論", nameEn: "Indigenous Law: Specific parts", sem: "115/1", code: "DOL 30160",
+          dept: "法律學系", year: "學三", type: "學程 Program", credits: "2.0/2.0", instructor: "林俊儒",
+          prereq: "原住民族法總論"
         },
+        desc: "本課程為原住民族法之進階課程，奠基在原住民族法總論課程學習的權利性質與種類、民族自治、文化與法源等基礎理論，將帶領修課學生共同理解原住民族法律的特殊性，其又應該如何被賦予意義，從而共同探討原住民族法各論的規範適用與實務運作。\n\n課程規劃從原住民族批判研究出發，提出理解原住民族法律的方式，並進入殖民結構指認法律、歷史與政治經濟之間的關聯。接著，將從政治參與、自然資源、文化資產、語言發展、教育文化、健康福祉、工作權益、身分法制等八大面向，探索原住民族法的各式規範。",
+        objectives: "本課程乃接續原住民族法總論課程，透過原住民族法各論法規範之介紹與運用，將可拓展對於原住民族法為更全面及整體面之觀照。此外，透過原住民族法各論之學習過程，也可將原住民族法總論所學之內容予以檢視及運用以強化總論之理解及基礎。",
+        outcomes: [
+          { id: "A", name: "具備專業法律領域及基礎法學知識能力", level: "中度相關" },
+          { id: "B", name: "具關懷弱勢、服務熱誠與社會責任之內涵", level: "高度相關" },
+          { id: "C", name: "具備獨立、理性及批判思考能力", level: "高度相關" },
+          { id: "D", name: "具有探索跨學門議題之能力", level: "中度相關" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "在地實踐 (Community Practice)、跨界教學 (Transdisciplinary Teaching)",
+        schedule: [
+          { w: "1", d: "9/10", t: "課程介紹", r: "" },
+          { w: "2", d: "9/17", t: "【第1講】法律、歷史與政治經濟：從原住民族重大歷史事件談起", r: "" },
+          { w: "3", d: "9/24", t: "【第2講】如何理解原住民族「法」？", r: "" },
+          { w: "4", d: "10/1", t: "【第3講】原住民族的政治參與I：自治、選舉與原民會", r: "" },
+          { w: "5", d: "10/8", t: "【第4講】原住民族的政治參與II：部落會議與部落公法人", r: "" },
+          { w: "6", d: "10/15", t: "【第5講】原住民族的自然資源I：馬太鞍溪堰塞湖災後重建專題；【第6講】原住民族的自然資源II：諮商同意權", r: "" },
+          { w: "7", d: "10/22", t: "【第7講】原住民族的自然資源III：共同管理機制", r: "" },
+          { w: "8", d: "10/29", t: "【第8講】原住民族的健康福祉", r: "" },
+          { w: "9", d: "11/5", t: "期中考試週（繳交作業，不上課）", r: "期中考週" },
+          { w: "10", d: "11/12", t: "全校運動會（不上課）", r: "停課" },
+          { w: "11", d: "11/19", t: "專家演講：原住民族教育實務", r: "專題演講" },
+          { w: "12", d: "11/26", t: "【第9講】原住民族的教育文化", r: "" },
+          { w: "13", d: "12/3", t: "【第10講】原住民族的文化資產", r: "" },
+          { w: "14", d: "12/10", t: "【第11講】原住民族的語言發展；【第12講】原住民族的工作權益", r: "" },
+          { w: "15", d: "12/17", t: "【第13講】原住民族的身分法制", r: "" },
+          { w: "16", d: "12/24", t: "期末考試（進行考試，不上課）", r: "期末考週" },
+          { w: "17", d: "12/31", t: "試卷解說、分數釋疑與課程回饋", r: "課程回饋" }
+        ],
+        flexible: "問題討論 (Problem-based Discussion)、自主學習 (Self-directed Learning)。\n備註：本校學期週數自115學年度起調整為17週，為符合1學分18小時之原則，請教師規劃安排彈性教學。",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "20%", method: "課程參與" },
+          { item: "期中考成績", pct: "30%", method: "作業繳交" },
+          { item: "期末考成績", pct: "50%", method: "期末考試" }
+        ],
+        gradingNotes: "• 平時成績：20%\n• 作業一篇：30%（選擇一本文學作品、電影或其他文本，探討其中原住民族法的精神並進行評析，字數3000-5000字，11/5 24:00之前線上繳交）\n• 期末考成績：50%",
+        textbooks: "教師自行編纂教材，會於第一堂課時說明，其後提供予修課學生。",
+        remarks: "無",
         pdf: "syllabi/115-1原住民族法各論.pdf"
       },
 
-      "seminar-indigenous-territory": {
-        zh: {
-          title: "原住民族傳統領域與法律專題研究",
-          enTitle: "Seminar on Indigenous Traditional Territorial Land and Laws",
-          sem: "114 學年度第 2 學期 (114/2)",
-          code: "FEL 58220",
-          credits: "2.0 學分 / 2.0 小時",
-          dept: "法律學系 碩士班（選修）",
-          desc: "在基礎概念講授之後，授課教師以「諮商同意權」、「共同管理機制」、「狩獵自主管理」為例，從法律規範、法律地理、法律技術面向切入，置入法律治理與法律動員框架探討，闡釋如何「做」原住民族傳統領域與法律的研究。需撰寫研究計畫與進行學術發表。",
-          objectives: "以轉型正義視角解讀原住民族土地法制與政策，具備獨立研究與處理當代課題之能力。",
-          grading: [
-            "平時課程參與 (10%)",
-            "期中研究計畫書 (30%)",
-            "期末報告表現 (20%)",
-            "期末研究報告 (40%)"
-          ],
-          schedule: [
-            { w: "1", d: "2/26", t: "【課程簡介】" },
-            { w: "2", d: "3/5", t: "【原住民族土地的法律史】" },
-            { w: "3", d: "3/12", t: "【傳統領域概念與法制】" },
-            { w: "4", d: "3/19", t: "【複數部落諮商同意權】（法律規範研究案例）" },
-            { w: "5", d: "3/26", t: "【如何「做」法律規範研究】" },
-            { w: "6", d: "4/2", t: "【原住民保留地政策】（專題演講）" },
-            { w: "7", d: "4/9", t: "【國家公園的空間法律治理】（法律地理研究案例）" },
-            { w: "8", d: "4/16", t: "【如何「做」法律地理研究】" },
-            { w: "9", d: "4/23", t: "期中考試週：研究計畫書繳交（不上課）" },
-            { w: "10", d: "4/30", t: "【狩獵自主管理的法律技術】（法律技術研究案例）" },
-            { w: "11", d: "5/7", t: "教師出國公差（不上課，另行補課）" },
-            { w: "12", d: "5/14", t: "【如何「做」法律技術研究】" },
-            { w: "13", d: "5/21", t: "【學生專題研究發表 I】" },
-            { w: "14", d: "5/28", t: "【學生專題研究發表 II】" },
-            { w: "15", d: "6/4", t: "【學生專題研究發表 III】" },
-            { w: "16", d: "6/11", t: "【學生專題研究發表 IV】" },
-            { w: "17", d: "6/18", t: "期末考試週：期末研究報告繳交（不上課）" }
-          ],
-          textbooks: "相關經典論文與期刊文獻（課程簡介時提供）。"
+      // 3. 114-2 刑事訴訟法二
+      "crim-proc-2-1142": {
+        meta: {
+          nameZh: "刑事訴訟法二", nameEn: "Criminal Procedure Law II", sem: "114/2", code: "DOL 30250",
+          dept: "法律學系", year: "學三", type: "學程 Program", credits: "3.0/3.0", instructor: "林俊儒",
+          prereq: "刑法總則一、刑法總則二、刑法分則"
         },
-        pdf: "syllabi/114-2原住民族傳統領域與法律專題研究.pdf"
+        desc: "下學期課程進入動態的刑事訴訟程序，從偵查程序、通常審判、簡易程序、上訴通則與上訴二、三審規範，乃至於抗告、再審、非常上訴程序，也將講授執行程序、協商程序，並概覽國民法官制度。要能夠充分掌握刑事訴訟的動態過程並且活用，這會非常需要學生在上學期課程已經建立良好的基礎。\n\n由於刑事訴訟法抽象且複雜，講授過程會輔以判決案例、新聞時事解說，以提升學生的學習興趣，並能夠對於刑事訴訟法的基本架構有所掌握，進而形成自己的看法，有分析論述的能力。此外，這門課程會提供課程簡報及參考資料，作為學習素材，但仍建議選擇適合自己的教科書閱讀，以提升學習成效。",
+        objectives: "能夠體察刑事訴訟作為國家刑罰權發動的意義與理念，並可以闡釋、運用刑事訴訟法概念，解析實務運作情形，進而駕馭並產生批判能力。",
+        outcomes: [
+          { id: "A", name: "具備專業法律領域及基礎法學知識能力", level: "中度相關" },
+          { id: "B", name: "具關懷弱勢、服務熱誠與社會責任之內涵", level: "—" },
+          { id: "C", name: "具備獨立、理性及批判思考能力", level: "高度相關" },
+          { id: "D", name: "具有探索跨學門議題之能力", level: "—" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "問題導向學習 (PBL)、解決導向學習 (SBL)、翻轉教室 (Flipped Classroom)、跨界教學 (Transdisciplinary Teaching)",
+        schedule: [
+          { w: "1", d: "02月25日", t: "課程簡介", r: "" },
+          { w: "2", d: "03月04日", t: "【第14講】證據禁止法則", r: "" },
+          { w: "3", d: "03月11日", t: "【第15講】刑事裁判", r: "" },
+          { w: "4", d: "03月18日", t: "【第16講】偵查通則", r: "" },
+          { w: "5", d: "03月25日", t: "【第17講】偵查各論：告訴、不起訴", r: "" },
+          { w: "6", d: "04月01日", t: "【第18講】偵查各論：公訴、自訴", r: "" },
+          { w: "7", d: "04月08日", t: "【第19講】通常審判程序", r: "" },
+          { w: "8", d: "04月15日", t: "【第20講】簡易型程序", r: "" },
+          { w: "9", d: "04月22日", t: "期中考試", r: "期中考試週" },
+          { w: "10", d: "04月29日", t: "【第21講】國民法官法制", r: "" },
+          { w: "11", d: "05月06日", t: "教師出國公差（不上課，另行補課）", r: "公差" },
+          { w: "12", d: "05月13日", t: "國民法官法的回顧與展望（專題演講）", r: "專題演講" },
+          { w: "13", d: "05月20日", t: "【第22講】抗告與上訴（含上訴二三審）", r: "" },
+          { w: "14", d: "05月27日", t: "【第23講】再審與非常上訴", r: "" },
+          { w: "15", d: "06月03日", t: "【第24講】刑事執行與附帶民事訴訟", r: "" },
+          { w: "16", d: "06月10日", t: "期末考試", r: "期末考試" },
+          { w: "17", d: "06月17日", t: "成績評量確認（預約制）", r: "期末考試週" }
+        ],
+        flexible: "無",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "10%", method: "課程平時表現" },
+          { item: "期中考成績", pct: "30%", method: "期中考試" },
+          { item: "期末考成績", pct: "40%", method: "期末考試" },
+          { item: "作業成績", pct: "20%", method: "心得報告" }
+        ],
+        gradingNotes: "• 平時成績：10%\n• 期中考試：30%\n• 期末考試：40%\n• 作業成績：20%（每講次均有題目，學生「任擇4題」撰寫心得報告，400-600字/篇繳交，此部分即為作業成績）",
+        textbooks: "會提供教學簡報與參考資料（請至東華e學苑下載），但仍建議同學選購適合自己的教科書參照閱讀（非必要）。",
+        remarks: "無",
+        pdf: "syllabi/114-2刑事訴訟法二.pdf"
       },
 
-      "seminar-sociology-law": {
-        zh: {
-          title: "法社會學專題研究（毒品法律社會學）",
-          enTitle: "Seminar on Legal Sociology",
-          sem: "115 學年度第 1 學期 (115/1)",
-          code: "FEL 60000",
-          credits: "2.0 學分 / 2.0 小時",
-          dept: "法律學系 碩士班（選修）",
-          desc: "本學期主題為「毒品法律社會學」，從法與社會 (Law and Society) 與批判性藥物研究 (Critical Drug Studies) 視角，檢視毒品政策、成癮現象、用藥環境、毒品市場及其社會控制機制。援引批判實在論、本體論政治與政治經濟學，重新探討病犯體制、檢警執法、監禁環境與減害政策。",
-          objectives: "覺察法律與社會課題，從經驗資料發展批判理論能力，提出反思與實踐方案。",
-          grading: [
-            "平時成績 (20%)：課堂參與研討。",
-            "期中考試週 (20%)：繳交【作業一】。",
-            "期末考試週 (20%)：繳交【作業二】。",
-            "作業成績 (40%)：文本導讀與研討發表。"
-          ],
-          schedule: [
-            { w: "1", d: "9/10", t: "課程介紹" },
-            { w: "2", d: "9/17", t: "毒品政策的基本觀念" },
-            { w: "3", d: "9/24", t: "批判性藥物研究的法與社會" },
-            { w: "4", d: "10/1", t: "用藥環境的法與社會I：物質使用價值與規範" },
-            { w: "5", d: "10/8", t: "用藥環境的法與社會II：地下結構化的政治經濟學" },
-            { w: "6", d: "10/15", t: "成癮的法律實作與法律歸因" },
-            { w: "7", d: "10/22", t: "病犯體制的法與社會I：用藥者的主體地位" },
-            { w: "8", d: "10/29", t: "病犯體制的法與社會II：國家與社會的控制" },
-            { w: "9", d: "11/5", t: "期中考試週：繳交【作業一】" },
-            { w: "10", d: "11/12", t: "全校運動會（停課）" },
-            { w: "11", d: "11/19", t: "毒品市場的法與社會I：非法市場的經濟社會學" },
-            { w: "12", d: "11/26", t: "毒品市場的法與社會II：犯罪學與法學的回應" },
-            { w: "13", d: "12/3", t: "檢警執法的法與社會" },
-            { w: "14", d: "12/10", t: "監禁環境的法與社會" },
-            { w: "15", d: "12/17", t: "刑事司法與減害政策" },
-            { w: "16", d: "12/24", t: "延伸主題的討論會" },
-            { w: "17", d: "12/31", t: "期末考試週：繳交【作業二】" }
-          ],
-          textbooks: "教師自行編纂教材與國內外經典文獻。"
+      // 4. 114-2 法社會學
+      "sociology-of-law-1142": {
+        meta: {
+          nameZh: "法理學（法社會學）", nameEn: "Jurisprudence / Sociology of Law", sem: "114/2", code: "DOL 40030",
+          dept: "法律學系", year: "學四", type: "學程 Program", credits: "2.0/2.0", instructor: "林俊儒",
+          prereq: "無"
         },
+        desc: "本課程為法律學系基礎法學科目的入門課程，目標是讓學生對於基礎法學之內涵有著基本認識，從中體會法學思想與社會的旨趣。特別關注法律的規範理論、規範如何在歷史中生成、如何為社會所理解，並以人文與社會科學方法探究法律及其現象。由於基礎法學涵蓋範圍廣泛，礙難於二學分課程進行講授，本學期課程會特別著重法律規範與社會之關係，先帶領學生探索政治秩序與國家、法律規範性與功能、法律與道德的關係，內容包括自然法、法實證主義等。接著，將深入法律的社會機能，並以法律與社會領域為本課程主要之講授內容。\n\n不同於法律規則釋義，法律與社會關注法律運作的社會背景，並將法律作為社會現象，理解法律運作的複雜性：法律如何影響社會、社會又如何形塑法律。在司法行為、紛爭解決與法律決策之中，潛藏何種意識形態、文化認同與社會生活。本課程將以臺灣本土案例出發，闡釋法律民族誌、法律多元、法律移植、法律解殖、法律職業、法律組織、女性主義法學、法律語言、法律動員、法律文件、法律圖像，並視情形講授田野調查方法，讓學生得以掌握概念、看見法律的不同風貌，使得法律學習能貼近自我，並對於生命產生意義。",
+        objectives: "本課程旨在就基礎法學進行基本的說明，內容會特別著重規範與社會之關係，讓學生掌握其理論梗概，並能夠藉此發展理解、批判與應用的能力，以回應當代法律與社會的實踐需求。",
+        outcomes: [
+          { id: "A", name: "具備專業法律領域及基礎法學知識能力", level: "—" },
+          { id: "B", name: "具關懷弱勢、服務熱誠與社會責任之內涵", level: "—" },
+          { id: "C", name: "具備獨立、理性及批判思考能力", level: "高度相關" },
+          { id: "D", name: "具有探索跨學門議題之能力", level: "—" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "問題導向學習 (PBL)、在地實踐 (Community Practice)、跨界教學 (Transdisciplinary Teaching)、解決導向學習 (SBL)",
+        schedule: [
+          { w: "1", d: "02月25日", t: "課程簡介", r: "" },
+          { w: "2", d: "03月04日", t: "【第1講】法理學視野中的「法律與社會」", r: "" },
+          { w: "3", d: "03月11日", t: "【第2講】如何「做」田野：田野方法論", r: "" },
+          { w: "4", d: "03月18日", t: "【第3講】法律多元 (Legal Pluralism)", r: "" },
+          { w: "5", d: "03月25日", t: "【第4講】法律職業 (Legal Profession)", r: "" },
+          { w: "6", d: "04月01日", t: "【第5講】法律技術 (Legal Technicality)", r: "" },
+          { w: "7", d: "04月08日", t: "【第6講】法意識 (Legal Consciousness)", r: "" },
+          { w: "8", d: "04月15日", t: "【第7講】法律動員 (Legal Mobilization)", r: "" },
+          { w: "9", d: "04月22日", t: "繳交個人研究計畫（不上課，自主學習）", r: "期中考試週" },
+          { w: "10", d: "04月29日", t: "【第8講】法律與本體論 (Law and Ontology)", r: "" },
+          { w: "11", d: "05月06日", t: "教師出國公差（不上課，另行補課）", r: "" },
+          { w: "12", d: "05月13日", t: "法律與社會視野中的國民法官（專題演講）", r: "專題演講" },
+          { w: "13", d: "05月20日", t: "【學生報告 I】（11人）", r: "補課延長30分" },
+          { w: "14", d: "05月27日", t: "【學生報告 II】（11人）", r: "補課延長30分" },
+          { w: "15", d: "06月03日", t: "【學生報告 III】（11人）", r: "補課延長30分" },
+          { w: "16", d: "06月10日", t: "【學生報告 IV】（10人）", r: "補課延長30分" },
+          { w: "17", d: "06月17日", t: "繳交期末報告（不上課）", r: "期末考試週" }
+        ],
+        flexible: "無",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "10%", method: "課程平時表現（發言次數計）" },
+          { item: "期中考成績", pct: "50%", method: "期中書面報告（個人研究計畫）" },
+          { item: "期末考成績", pct: "40%", method: "期末口頭參與30% + 期末書面報告10%" }
+        ],
+        gradingNotes: "• 課程平時表現（不點名，以發言次數計）：10%\n• 期中書面報告（個人研究計畫）：50%\n• 期末口頭參與（個人研究發表）：30%\n• 期末書面報告（個人研究成果）：10%",
+        textbooks: "教師自製課程講義，請於線上教學平台下載。其餘參考書目，上課時說明。",
+        remarks: "請以期中研究計畫為底稿，製作一份簡報進行8分鐘的口頭報告（以研究計畫為原則），並接受4分鐘的現場提問回饋，並根據教師與同學的回饋修正，於期末時繳交修正後的書面報告。\n1. 時間安排：具體報告時間與名單，助教將另行公告於e學苑。5月20日(11人)、5月27日(11人)、6月3日(11人)、6月10日(10人)。由於授課教師5/6出國公差，將於此四堂課均延長30分鐘作為補課。\n2. 簡報繳交時間：當週報告之週一晚上24:00前上傳至e學苑，逾期不計分。\n3. 書面繳交時間：請於2026年6月17日晚上24:00前上傳至e學苑，逾期不計分。\n• 期末書面部分，請以期中研究計畫為基礎，以「追蹤修訂」方式標出修改處，並說明修改原因（如為成果報告書，則不受此限制）。\n• 期末書面報告不要求字數，主要在於能夠清晰呈現修課學生經歷口頭報告之後的具體回饋與思路即可。",
+        pdf: "syllabi/114-2法社會學.pdf"
+      },
+
+      // 5. 114-2 原住民族傳統領域與法律
+      "indigenous-territory-1142": {
+        meta: {
+          nameZh: "原住民族傳統領域與法律", nameEn: "Aboriginal Title and the State's Laws", sem: "114/2", code: "DOL 30140",
+          dept: "法律學系", year: "學三", type: "學程 Program", credits: "2.0/2.0", instructor: "林俊儒",
+          prereq: "無"
+        },
+        desc: "在原住民族土地法律史的講授之後，課程將以原住民族傳統領域概念與法制為核心，帶領學生探討諮商同意、原保地政策、共管機制、自主管理、文化抗辯，並以個案探討法律如何治理、動員及其技術形塑的過程。從中，也協助學生練習以書面報告、口頭報告方式掌握相關法律概念，並要求學生提出「法律因應策略報告」，回應部落需求而由授課教師與學生共同對話研議，習得處理原住民族傳統領域議題的能力。",
+        objectives: "回顧台灣原住民族的土地史，並聚焦在原住民族土地權利的法律史考察，以轉型正義視角理解圍繞於此的權利、法制與政策。從而引導學生掌握此基礎，並有能力處理原住民族傳統領域與法律的當代課題。",
+        outcomes: [
+          { id: "A", name: "具備專業法律領域及基礎法學知識能力", level: "中度相關" },
+          { id: "B", name: "具關懷弱勢、服務熱誠與社會責任之內涵", level: "高度相關" },
+          { id: "C", name: "具備獨立、理性及批判思考能力", level: "高度相關" },
+          { id: "D", name: "具有探索跨學門議題之能力", level: "中度相關" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "問題導向學習 (PBL)、在地實踐 (Community Practice)、跨界教學 (Transdisciplinary Teaching)、解決導向學習 (SBL)",
+        schedule: [
+          { w: "1", d: "02月26日", t: "課程簡介", r: "" },
+          { w: "2", d: "03月05日", t: "【第1講】原住民族土地的法律史", r: "" },
+          { w: "3", d: "03月12日", t: "【第2講】傳統領域概念與法制", r: "" },
+          { w: "4", d: "03月19日", t: "【第3講】諮商同意權法制運作", r: "" },
+          { w: "5", d: "03月26日", t: "【第4講】複數部落諮商同意權", r: "" },
+          { w: "6", d: "04月02日", t: "【第5講】原住民保留地政策", r: "專題演講" },
+          { w: "7", d: "04月09日", t: "【第6講】自然資源共同管理", r: "" },
+          { w: "8", d: "04月16日", t: "【第7講】原住民族文化抗辯", r: "" },
+          { w: "9", d: "04月23日", t: "期中報告繳交（不上課）", r: "期中考試週" },
+          { w: "10", d: "04月30日", t: "【第8講】狩獵自主管理機制", r: "" },
+          { w: "11", d: "05月07日", t: "教師出國公差（不上課，另行補課）", r: "" },
+          { w: "12", d: "05月14日", t: "【法律因應策略報告與研議分析】諮商同意權", r: "補課延長1小時" },
+          { w: "13", d: "05月21日", t: "【法律因應策略報告與研議分析】諮商同意權", r: "" },
+          { w: "14", d: "05月28日", t: "【法律因應策略報告與研議分析】原住民保留地", r: "" },
+          { w: "15", d: "06月04日", t: "【法律因應策略報告與研議分析】自然資源共同管理", r: "" },
+          { w: "16", d: "06月11日", t: "【法律因應策略報告與研議分析】原住民族文化抗辯", r: "" },
+          { w: "17", d: "06月18日", t: "期末報告繳交（不上課）", r: "期末考試週" }
+        ],
+        flexible: "無",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "10%", method: "課程平時表現（個人）" },
+          { item: "期中考成績", pct: "50%", method: "期中書面報告（個人因應策略）" },
+          { item: "期末考成績", pct: "40%", method: "課堂發表參與20% + 期末書面報告20%" }
+        ],
+        gradingNotes: "• 課程平時表現（個人）：10%\n• 期中書面報告（個人）：50%\n• 課堂發表參與（個人）：20%\n• 期末書面報告（個人）：20%\n\n【期中報告規定】請選擇台灣案例，運用上課所學知識進行案例解析，並根據該部落/個人情況與需求（依新聞媒體所述即可），以「法律」為基礎提供具體因應策略。\n1. 主題選擇：下述主題「四選一」：(1)諮商同意權 (2)原住民保留地 (3)自然資源共同管理 (4)原住民族文化抗辯\n2. 具體素材：請檢附新聞、判決、文件等可資證明事實之引註及文件\n3. 知識運用：請至少舉出「1項」課程簡報對應頁碼（略敘其論述意旨）\n4. 注意事項：截止日期為2026年4月23日晚上24:00（逾期該項一律0分）\n(1) 該份文件字數限制4000-6000字，逾越限制者，扣10分。\n(2) 如無檢附可資證明之引註及文件，扣10分。\n(3) 如無舉出對應課程簡報頁碼（略敘其論述意旨），扣10分。\n\n【期末報告規定】請以期中報告為底稿，製作一份簡報進行15分鐘口頭報告（5分鐘現場提問回饋），並根據教師與同學的回饋修正，於期末時繳交修正後的書面報告。\n1. 時間安排：具體報告時間與名單，助教將另行公告於e學苑（由於授課教師5/7出國公差，將於5/14補課延長1小時，且此5堂課均不下課，其餘視課程安排而定）。\n2. 簡報繳交時間：當週報告之週二晚上12:00前上傳至e學苑，逾期不計分。\n3. 書面繳交時間：請於2026年6月18日晚上24:00上傳至e學苑，逾期不計分。\n(1) 期末書面報告部分，請以期中報告原稿為基礎，以「追蹤修訂」方式標出修改處，並說明修改原因。\n(2) 期末書面報告不要求字數，主要在於能夠清晰呈現修課學生經歷口頭報告之後的具體回饋與思路即可。",
+        textbooks: "教師自製課程講義，請於線上教學平台下載。其餘參考書目，上課時說明。",
+        remarks: "無",
+        pdf: "syllabi/114-2原住民族傳統領域與法律.pdf"
+      },
+
+      // 6. 114-1 刑事訴訟法一
+      "crim-proc-1-1141": {
+        meta: {
+          nameZh: "刑事訴訟法一", nameEn: "Criminal Procedure Law I", sem: "114/1", code: "DOL 20030",
+          dept: "法律學系", year: "學三", type: "學程 Program", credits: "3.0/3.0", instructor: "林俊儒",
+          prereq: "刑法總則一、刑法總則二、刑法分則"
+        },
+        desc: "刑法作為犯罪要件及法律效果的實體規範，有賴刑事訴訟法程序規範的實踐，規範個人與國家的權利義務界線，方能使得國家刑罰權的發動取得正當性。根據這項理解，刑事訴訟目的不僅在於發現真實，亦需要符合正當程序的要求，並從這個基礎出發，發展各項基本原則以及法律制度。\n\n上學期課程將先從刑事訴訟作為國家刑罰權發動程序的意義開展，探討追求實體真實時，應如何兼顧正當程序，並且聚焦刑事司法功能，闡釋制度的意義。接著，開展訴訟主體與客體、訴訟行為，以及強制處分、證據法的基礎課題，這些課程內容將是奠定刑事訴訟法素養的基礎。\n\n下學期課程進入動態的刑事訴訟程序，從偵查程序、通常審判、簡易程序、上訴通則與上訴二、三審規範，乃至於抗告、再審、非常上訴程序，也將講授執行程序、協商程序，並概覽國民法官制度。要能夠充分掌握刑事訴訟的動態過程並且活用，這會非常需要學生在上學期課程已經建立良好的基礎。\n\n由於刑事訴訟法抽象且複雜，講授過程會輔以判決案例、新聞時事解說，以提升學生的學習興趣，並能夠對於刑事訴訟法的基本架構有所掌握，進而形成自己的看法，有分析論述的能力。此外，這門課程會提供課程簡報及參考資料，作為學習素材，但仍建議選擇適合自己的教科書閱讀，以提升學習成效。",
+        objectives: "能夠體察刑事訴訟作為國家刑罰權發動的意義與理念，並可以闡釋、運用刑事訴訟法概念，解析實務運作情形，進而駕馭並產生批判能力。",
+        outcomes: [
+          { id: "A", name: "具備專業法律領域及基礎法學知識能力", level: "中度相關" },
+          { id: "B", name: "具關懷弱勢、服務熱誠與社會責任之內涵", level: "—" },
+          { id: "C", name: "具備獨立、理性及批判思考能力", level: "高度相關" },
+          { id: "D", name: "具有探索跨學門議題之能力", level: "—" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "問題導向學習 (PBL)、翻轉教室 (Flipped Classroom)、在地實踐 (Community Practice)、跨界教學 (Transdisciplinary Teaching)",
+        schedule: [
+          { w: "1", d: "9/10", t: "課程簡介（說明教學理念、課程規劃、課程要求、評分方式）*如欲選修這門課程，第一堂課請務必出席（簡介於1小時內即會結束）", r: "" },
+          { w: "2", d: "9/17", t: "【第1講】刑事訴訟目的、基礎構造、程序流程", r: "" },
+          { w: "3", d: "9/24", t: "【第2講】訴訟主體與結構I：法院、檢察官及其輔助機關", r: "" },
+          { w: "4", d: "10/1", t: "【第3講】訴訟主體與結構II：被告/犯罪嫌疑人", r: "" },
+          { w: "5", d: "10/8", t: "【第4講】訴訟主體與結構III：辯護人、其他關係人", r: "" },
+          { w: "6", d: "10/15", t: "【第5講】訴訟客體與標的：訴訟標的（單一性、同一性及其檢討）", r: "" },
+          { w: "7", d: "10/22", t: "【第6講】訴訟行為與程序：訴訟關係、訴訟要件、訴訟行為（兼論效力範圍）", r: "" },
+          { w: "8", d: "10/29", t: "【第7講】強制處分總論：制度定位、主體與對象、限制與監督", r: "" },
+          { w: "9", d: "11/5", t: "進行期中考試", r: "期中考試週" },
+          { w: "10", d: "11/12", t: "全校運動會（停課）", r: "停課" },
+          { w: "11", d: "11/19", t: "【第8講】強制處分各論I：對人的強制處分", r: "" },
+          { w: "12", d: "11/26", t: "【第9講】強制處分各論II：對物的強制處分", r: "" },
+          { w: "13", d: "12/3", t: "【第10講】強制處分各論III：特殊偵查手段（含科技偵查）", r: "" },
+          { w: "14", d: "12/10", t: "【第11講】證據法總論：基本原則、基本概念、法定證據方法", r: "" },
+          { w: "15", d: "12/17", t: "【第12講】證據法各論I：自白法則、補強法則、傳聞法則", r: "" },
+          { w: "16", d: "12/24", t: "【第13講】證據法各論II：證據方法、私人取證、數位證據", r: "" },
+          { w: "17", d: "12/31", t: "進行期末考試", r: "期末考試週" },
+          { w: "18", d: "1/7", t: "彈性教學安排（原則不上課）", r: "彈性安排" }
+        ],
+        flexible: "無",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "10%", method: "口頭發表（課程參與）" },
+          { item: "期中考成績", pct: "30%", method: "測驗會考" },
+          { item: "期末考成績", pct: "40%", method: "測驗會考" },
+          { item: "作業成績", pct: "20%", method: "心得報告" }
+        ],
+        gradingNotes: "(1) 平時成績：「不會」以出席進行評量（=不點名），平時成績以「課程參與程度」評量（發言1次計1分，至多5分，其餘教師評量）。\n(2) 期中考試：選擇題測驗，詳情於第一堂課說明。\n(3) 期末考試：選擇題、申論題測驗，詳情於第一堂課說明。\n(4) 作業成績：每講次均有題目，學生「任擇4題」撰寫心得報告（400-600字/篇）繳交，此部分即為作業成績（2025/12/31前繳交，逾期不計分）。",
+        textbooks: "會提供教學簡報與參考資料（請至東華e學苑下載），但仍建議同學選購適合自己的教科書參照閱讀（非必要）：\n• 林鈺雄，刑事訴訟法(上冊)，新學林，2024年9月。\n• 林鈺雄，刑事訴訟法(下冊)，新學林，2024年9月。\n• 林俊益，刑事訴訟法概論(上)，新學林，2024年9月。\n• 林俊益，刑事訴訟法概論(下)，新學林，2024年9月。\n• 王兆鵬、張明偉、李榮耕，刑事訴訟法(上)，新學林，2024年2月。\n• 王兆鵬、張明偉、李榮耕，刑事訴訟法(下)，新學林，2023年2月。",
+        remarks: "無",
+        pdf: "syllabi/114-1刑事訴訟法一.pdf"
+      },
+
+      // 7. 114-1 犯罪學
+      "criminology-1141": {
+        meta: {
+          nameZh: "犯罪學", nameEn: "Criminology", sem: "114/1", code: "DOL 20300",
+          dept: "法律學系", year: "學二", type: "學程 Program", credits: "2.0/2.0", instructor: "林俊儒",
+          prereq: "刑法總則一、刑法總則二"
+        },
+        desc: "傳統犯罪學知識建構來自特定視角與價值觀，教學時有必要讓不同種族、性別、階級的聲音得以展現出來，克服犯罪學知識的不平等，並藉此培養批判性思維與犯罪學想像力，讓知識能貼近生活經驗，從而達到具有知情意行的自覺反思，這是這門課程的教學理念。\n\n根據這項教學理念，課程進行會先由教師講授犯罪學知識，並運用文學、音樂、影視作品、新聞案例，讓學生掌握理論概念與流變，奠定學習基礎。從中透過互動，培養敏銳的洞察力、涵養知識的品味，並且練習回應主流的犯罪敘事，創造犯罪學知識的實踐意義。\n\n由於犯罪學知識基礎來自許多學科，包括但不限於社會學、法學、人類學、心理學、生物學、經濟學、歷史學、地理學。在知識實踐的過程，又與刑事司法系統密切相關。因此，這門課程也會從法律與社會的觀點，適時說明台灣刑事司法系統的相關知識，並且援引跨學科的研究成果。\n\n課程安排上，會盡量以案例為導引，並透過學生自行觀賞影視作品增進學習成果（非必要，但有助於學習）。前半段課程專注犯罪學理論的講授；後半段課程開展批判觀點，闡釋種族、性別、階級的意義，探討毒品犯罪、少年犯罪、犯罪被害課題，並以藥物處遇、監獄為題，與刑事司法系統對話。\n\n需要特別強調的是，犯罪學知識涉及令人不安與痛苦的敏感性內容，諸如家庭暴力、人際霸凌、歧視與虐待，討論這些議題可能讓課程參與者感到不適。這門課程會透過適當安排，要求參與者履行嚴肅的互動責任，竭力確保學生能在探索知識時，處於包容性的學習環境。\n\n總結來說，這門課程要求學生在遵守討論規範之下，參與課堂討論，且需要閱讀文本、繳交心得，並視情況進行個案研析，請在選修之前特別留意，如果無法接受高強度的課堂討論、承擔相當程度學習責任者，不建議修習。此外，這門課程「不開放旁聽」，以確保課程品質與包容性的學習環境。",
+        objectives: "能夠理解犯罪學理論、分析犯罪成因，並批判性檢討犯罪定義、闡釋犯罪與社會的關係，從而運用犯罪學來解析政策，提出自身觀點。",
+        outcomes: [
+          { id: "A", name: "具備專業法律領域及基礎法學知識能力", level: "高度相關" },
+          { id: "B", name: "具關懷弱勢、服務熱誠與社會責任之內涵", level: "—" },
+          { id: "C", name: "具備獨立、理性及批判思考能力", level: "高度相關" },
+          { id: "D", name: "具有探索跨學門議題之能力", level: "—" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "問題導向學習 (PBL)、在地實踐 (Community Practice)、跨界教學 (Transdisciplinary Teaching)",
+        schedule: [
+          { w: "1", d: "9/10", t: "課程簡介（說明教學理念、課程規劃、課程要求、評分方式）*如欲選修這門課程，第一堂課請務必出席（簡介於1小時內即會結束）", r: "" },
+          { w: "2", d: "9/17", t: "【第1講】犯罪與犯罪學：視角的轉換", r: "" },
+          { w: "3", d: "9/24", t: "【第2講】「所有生物都會感到恐懼？」：恫嚇、懲罰與理性\n講授主題：古典犯罪理論、理性選擇理論\n建議觀賞：《黑暗騎士三部曲》(The Dark Knight Trilogy)", r: "" },
+          { w: "4", d: "10/1", t: "【第3講】天生犯罪人？：關於科學實證的犯罪學觀點\n講授主題：犯罪生物理論、犯罪心理理論\n建議觀賞：《發條橘子》(A Clockwork Orange)", r: "" },
+          { w: "5", d: "10/8", t: "【第4講】犯罪、被害與監控：社會條件與犯罪之間的關係\n講授主題：日常活動理論\n建議觀賞：《漢娜的遺言》(13 Reasons Why)", r: "" },
+          { w: "6", d: "10/15", t: "【第5講】「你可知罪啊？」：在美國/中國夢裡「越軌」\n講授主題：社會解組理論、迷亂理論\n建議觀賞：《天注定》、《國定殺戮日》(The Purge)", r: "" },
+          { w: "7", d: "10/22", t: "【第6講】跟「壞朋友」混在一起：犯罪、學習與文化\n講授主題：差異接觸理論、社會學習理論、次文化理論\n建議觀賞：《辣妹過招》(Mean Girls)", r: "" },
+          { w: "8", d: "10/29", t: "【第7講】「把他當垃圾看待，會得到什麼？」：犯罪、污名與剝削\n講授主題：標籤理論、批判犯罪學理論\n建議觀賞：《小丑》(Joker)、《大佛普拉斯》", r: "" },
+          { w: "9", d: "11/5", t: "繳交期中報告（不上課）", r: "期中考試週" },
+          { w: "10", d: "11/12", t: "全校運動會（停課）", r: "停課" },
+          { w: "11", d: "11/19", t: "【第8講】犯罪學知識的「倒讀」：種族、性別與階級\n講授主題：犯罪學知識不平等、犯罪敘事\n建議觀賞：《令人討厭的松子的一生》(嫌われ松子の一生)", r: "" },
+          { w: "12", d: "11/26", t: "【第9講】毒品犯罪\n講授主題：毒品犯罪\n建議觀賞：《冰毒》(Ice Poison)、《私法拘留》(Ma Rosa)", r: "" },
+          { w: "13", d: "12/3", t: "【第10講】少年犯罪［專家講座］\n講授主題：少年犯罪\n建議觀賞：《少年吔，安啦》、《徬徨少年時》(Adolescence)", r: "預計邀請專家" },
+          { w: "14", d: "12/10", t: "【第11講】犯罪被害\n講授主題：犯罪被害\n建議觀賞：《儘管如此也要活下去》(それでも、生きてゆく)", r: "" },
+          { w: "15", d: "12/17", t: "【第12講】社會內處遇：以藥物處遇為例\n講授主題：社會內處遇（以藥物處遇為例）\n建議觀賞：《八月三十一日，我在奧斯陸》(Oslo, 31. august)", r: "" },
+          { w: "16", d: "12/24", t: "【第13講】機構內處遇：以監獄執行為例\n講授主題：機構內處遇（以監獄執行為例）\n建議觀賞：《刺激1995》(The Shawshank Redemption)", r: "" },
+          { w: "17", d: "12/31", t: "進行期末考試", r: "期末考試週" },
+          { w: "18", d: "1/7", t: "彈性教學安排（原則不上課）", r: "彈性安排" }
+        ],
+        flexible: "無",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "10%", method: "口頭發表（課程參與）" },
+          { item: "期中考成績", pct: "30%", method: "期中報告" },
+          { item: "期末考成績", pct: "40%", method: "測驗會考" },
+          { item: "作業成績", pct: "20%", method: "心得報告" }
+        ],
+        gradingNotes: "(1) 平時成績：「不會」以出席進行評量（=不點名），平時成績以「課程參與程度」評量（發言1次計1分，至多5分，其餘教師評量）。\n(2) 期中報告：以犯罪學理論的運用為題（2500-3000字），詳情於第一堂課說明。\n(3) 期末考試：選擇題與申論題命題應試，詳情於第一堂課說明。\n(4) 作業成績：每講次均有題目，學生「任擇4題」撰寫心得報告（400-600字/篇）繳交，此部分即為作業成績（2025/12/31前繳交，逾期不計分）。\n(5) 非修課者「禁止旁聽」，以確保課程品質與包容性的環境，理由如課程描述所述。",
+        textbooks: "會提供教學簡報與參考資料（請至東華e學苑下載），但仍建議同學選購適合自己的教科書參照閱讀（非必要）：\n• 許春金，《犯罪學》(三民書局, 2017)\n• 周愫嫻、曹立群，《犯罪學理論及其實證》(五南出版, 2007)\n• 蔡德輝、楊士隆，《犯罪學》(五南出版, 2025)\n• Shereen Hassan, Dan Lett, Leah Ballantyne. Introduction to Criminology (Open Textbook, 2023) 這本基於開放教育資源(OER)編寫的入門教材，可以直接在線上取得。",
+        remarks: "無",
+        pdf: "syllabi/114-1犯罪學.pdf"
+      },
+
+      // 8. 115-1 法社會學專題研究
+      "seminar-sociology-law-1151": {
+        meta: {
+          nameZh: "法社會學專題研究", nameEn: "Seminar on Legal Sociology", sem: "115/1", code: "FEL 60000",
+          dept: "法律學系", year: "碩士班", type: "選修 Elective", credits: "2.0/2.0", instructor: "林俊儒",
+          prereq: "無"
+        },
+        desc: "本學期課程主題為「毒品法律社會學」，旨在從法與社會(Law and Society)與批判性藥物研究(Critical Drug Studies)的視角，探討當代毒品政策、成癮現象、用藥環境、毒品市場及其背後的法律實作與社會控制機制。在毒品法律與政策的研究領域之中，傳統法學與政策研究關注除罪化討論、規範適用或政策效果評估，較少討論個人使用毒品者置身於毒品流通網絡的情境及其與法律的互動關係。\n\n有別於此，本課程將以法律社會學為基礎，從批判實在論(Critical realism)、本體論政治(Ontological Politics)出發，援引政治經濟學、經濟社會學、成癮倫理學與哲學的理論概念，重新檢視法律、治療網絡、毒品市場、刑事司法與物質使用之間的關係：看見毒品法律與政策如何與社會交錯，行動者在何種結構之中調節規範，而毒品法律與政策又能如何回應。\n\n本課程將透過閱讀毒品法律社會學的經典與新進學術作品，與學生共同理解毒品法律與政策如何形塑身處於網絡的行動者（包括但不限於：病犯、毒販等），探討法律實作如何介入用藥空間，也關注病犯治療、檢警執法、監禁環境的治理機制，培養學生透過法律社會學進行研究的能力，並能夠對於當代刑事司法、醫療與矯治體系提出批判與反思。",
+        objectives: "本課程將以法社會學理論為核心，透過案例引導與概念闡釋，使得同學能夠覺察法律與社會的課題，並從經驗資料發展理解、批判與應用理論的能力，以回應當代法律與社會的實踐需求。",
+        outcomes: [
+          { id: "A", name: "具備專業法學知識與研究批判能力", level: "高度相關" },
+          { id: "B", name: "具備探索跨學門議題與科際整合之能力", level: "高度相關" },
+          { id: "C", name: "具關懷社會正義與弱勢處遇之實踐精神", level: "高度相關" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "跨界教學 (Transdisciplinary Teaching)",
+        schedule: [
+          { w: "1", d: "9/10", t: "課程介紹", r: "" },
+          { w: "2", d: "9/17", t: "毒品政策的基本觀念", r: "" },
+          { w: "3", d: "9/24", t: "批判性藥物研究的法與社會", r: "" },
+          { w: "4", d: "10/1", t: "用藥環境的法與社會I：物質使用價值與規範", r: "" },
+          { w: "5", d: "10/8", t: "用藥環境的法與社會II：地下結構化的政治經濟學", r: "" },
+          { w: "6", d: "10/15", t: "成癮的法律實作與法律歸因", r: "" },
+          { w: "7", d: "10/22", t: "病犯體制的法與社會I：用藥者的主體地位", r: "" },
+          { w: "8", d: "10/29", t: "病犯體制的法與社會II：國家與社會的控制", r: "" },
+          { w: "9", d: "11/5", t: "期中考試週（繳交【作業一】）", r: "繳交作業一" },
+          { w: "10", d: "11/12", t: "全校運動會（停課）", r: "停課" },
+          { w: "11", d: "11/19", t: "毒品市場的法與社會I：非法市場的經濟社會學", r: "" },
+          { w: "12", d: "11/26", t: "毒品市場的法與社會II：犯罪學與法學的回應", r: "" },
+          { w: "13", d: "12/3", t: "檢警執法的法與社會", r: "" },
+          { w: "14", d: "12/10", t: "監禁環境的法與社會", r: "" },
+          { w: "15", d: "12/17", t: "刑事司法與減害政策", r: "" },
+          { w: "16", d: "12/24", t: "延伸主題的討論會", r: "" },
+          { w: "17", d: "12/31", t: "期末考試週（繳交【作業二】）", r: "繳交作業二" }
+        ],
+        flexible: "問題討論 (Problem-based Discussion)、線上作業 (Online Assignments)、自主學習 (Self-directed Learning)。\n備註：本校學期週數自115學年度起調整為17週，為符合1學分18小時之原則，請教師規劃安排彈性教學。",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "20%", method: "課堂研討參與" },
+          { item: "期中考成績", pct: "20%", method: "作業一" },
+          { item: "期末考成績", pct: "20%", method: "作業二" },
+          { item: "作業成績", pct: "40%", method: "文本導讀" }
+        ],
+        gradingNotes: "• 平時成績：20%\n• 期中考成績（繳交作業一）：20%\n• 期末考成績（繳交作業二）：20%\n• 作業成績（文本導讀）：40%",
+        textbooks: "教師自行編纂教材，會於第一堂課時說明，其後提供予修課學生。",
+        remarks: "無",
         pdf: "syllabi/115-1法社會學專題言就.pdf"
+      },
+
+      // 9. 114-2 原住民族傳統領域與法律專題研究
+      "seminar-indigenous-territory-1142": {
+        meta: {
+          nameZh: "原住民族傳統領域與法律專題研究", nameEn: "Seminar on Indigenous Traditional territoral Land and Laws", sem: "114/2", code: "FEL 58220",
+          dept: "法律學系", year: "碩士班", type: "選修 Elective", credits: "2.0/2.0", instructor: "林俊儒",
+          prereq: "無"
+        },
+        desc: "在原住民族傳統領域與法律基礎概念（原住民族土地法律史、傳統領域概念與法制）講授之後，授課教師將以「諮商同意權」、「共同管理機制」、「狩獵自主管理」為例，從法律規範、法律地理、法律技術面向切入，置入法律治理、法律動員的框架探討，並邀請同學閱讀相關經典學術論文，闡釋如何「做」原住民族傳統領域與法律的研究。在這個過程，學生需要撰寫研究計畫，並練習進行學術發表，從而提出初步研究成果。",
+        objectives: "能夠對於原住民族土地發展的法律史有所理解、理解涉及原住民族傳統領域的相關規範，並能以轉型正義視角進行規範解讀，進而有能力處理當代原住民族土地權利、法制與政策的課題。",
+        outcomes: [
+          { id: "A", name: "對於法律倫理及社會期待與責任有正向堅持及使命感", level: "高度相關" },
+          { id: "B", name: "具備專業法律領域及基礎法學知識能力", level: "高度相關" },
+          { id: "C", name: "具備在地深耕、具本土化回饋服務熱忱，立足東臺灣、放眼世界之能力", level: "高度相關" }
+        ],
+        strategies: "課堂講授 (Lecture)、分組討論 (Group Discussion)",
+        innovations: "跨界教學 (Transdisciplinary Teaching)",
+        schedule: [
+          { w: "1", d: "02月26日", t: "【課程簡介】", r: "" },
+          { w: "2", d: "03月05日", t: "【原住民族土地的法律史】", r: "" },
+          { w: "3", d: "03月12日", t: "【傳統領域概念與法制】", r: "" },
+          { w: "4", d: "03月19日", t: "【複數部落諮商同意權】（法律規範研究案例）", r: "" },
+          { w: "5", d: "03月26日", t: "【如何「做」法律規範研究】", r: "" },
+          { w: "6", d: "04月02日", t: "【原住民保留地政策】（專題演講）", r: "專題演講" },
+          { w: "7", d: "04月09日", t: "【國家公園的空間法律治理】（法律地理研究案例）", r: "" },
+          { w: "8", d: "04月16日", t: "【如何「做」法律地理研究】", r: "" },
+          { w: "9", d: "04月23日", t: "研究計畫書繳交（不上課）", r: "期中考週" },
+          { w: "10", d: "04月30日", t: "【狩獵自主管理的法律技術】（法律技術研究案例）", r: "" },
+          { w: "11", d: "05月07日", t: "教師出國公差（不上課，另行補課）", r: "" },
+          { w: "12", d: "05月14日", t: "【如何「做」法律技術研究】", r: "" },
+          { w: "13", d: "05月21日", t: "【學生報告 I】", r: "" },
+          { w: "14", d: "05月28日", t: "【學生報告 II】", r: "" },
+          { w: "15", d: "06月04日", t: "【學生報告 III】", r: "" },
+          { w: "16", d: "06月11日", t: "【學生報告 IV】", r: "" },
+          { w: "17", d: "06月18日", t: "期末報告繳交（不上課）", r: "期末考試週" }
+        ],
+        flexible: "無",
+        gradingTable: [
+          { item: "平時成績(含出缺席)", pct: "10%", method: "平時課程參與" },
+          { item: "期中考成績", pct: "30%", method: "期中研究計畫" },
+          { item: "期末考成績", pct: "60%", method: "期末報告表現20% + 期末研究報告40%" }
+        ],
+        gradingNotes: "• 平時課程參與：10%\n• 期中研究計畫：30%\n• 期末報告表現：20%\n• 期末研究報告：40%",
+        textbooks: "本課程需閱讀的相關文獻，將於課程簡介時告知並提供。",
+        remarks: "無",
+        pdf: "syllabi/114-2原住民族傳統領域與法律專題研究.pdf"
       }
     };
 
-    // 開啟課綱 Modal
+    // 開啟課綱 Modal 並渲染完整 PDF 課綱內容
     function openSyllabusModal(courseKey) {
       const data = syllabusDatabase[courseKey];
       if (!data) return;
 
-      const c = data.zh;
-      document.getElementById('modalCourseTitle').textContent = isEnglish ? c.enTitle : c.title;
-      document.getElementById('modalCourseSub').textContent = isEnglish ? c.title : c.enTitle;
+      const m = data.meta;
+      document.getElementById('modalCourseTitle').textContent = isEnglish ? m.nameEn : m.nameZh;
+      document.getElementById('modalCourseSub').textContent = isEnglish ? m.nameZh : m.nameEn;
 
-      // Chips
-      const chipsBar = document.getElementById('modalChipsBar');
-      chipsBar.innerHTML = `
-        <span class="meta-chip highlight">${c.sem}</span>
-        <span class="meta-chip">${c.code}</span>
-        <span class="meta-chip">${c.credits}</span>
-        <span class="meta-chip">${c.dept}</span>
+      // 渲染課綱完整內容
+      const body = document.getElementById('modalScrollBody');
+
+      // 基本課務資料表
+      let infoHtml = `
+        <table class="info-table">
+          <tr>
+            <td class="label-cell">課程名稱</td>
+            <td><strong>${m.nameZh}</strong> (${m.nameEn})</td>
+            <td class="label-cell">學年/學期</td>
+            <td>${m.sem}</td>
+          </tr>
+          <tr>
+            <td class="label-cell">科目代碼</td>
+            <td>${m.code}</td>
+            <td class="label-cell">開課單位 / 系級</td>
+            <td>${m.dept} ${m.year}</td>
+          </tr>
+          <tr>
+            <td class="label-cell">修別 / 學分</td>
+            <td>${m.type} / ${m.credits}</td>
+            <td class="label-cell">授課教師</td>
+            <td>${m.instructor}</td>
+          </tr>
+          <tr>
+            <td class="label-cell">先修課程</td>
+            <td colspan="3">${m.prereq}</td>
+          </tr>
+        </table>
       `;
 
-      // Body
-      const body = document.getElementById('modalScrollBody');
-      let scheduleRows = c.schedule.map(s => `
+      // 能力相關性
+      let outcomeRows = data.outcomes.map(o => `
         <tr>
-          <td class="week-col">第${s.w}週</td>
-          <td class="date-col">${s.d}</td>
-          <td>${s.t}</td>
+          <td style="width:50px; text-align:center; font-weight:600;">${o.id}</td>
+          <td>${o.name}</td>
+          <td style="width:110px; text-align:center; font-weight:600; color:var(--color-accent);">${o.level}</td>
         </tr>
       `).join('');
 
-      let gradingList = c.grading.map(g => `<li>${g}</li>`).join('');
+      let outcomesHtml = `
+        <table class="info-table" style="margin-bottom:0.8rem;">
+          <thead>
+            <tr style="background:#f8fafc;">
+              <th style="border:1px solid #e2e8f0; padding:0.4rem; text-align:center;">指標</th>
+              <th style="border:1px solid #e2e8f0; padding:0.4rem; text-align:left;">系專業能力名稱</th>
+              <th style="border:1px solid #e2e8f0; padding:0.4rem; text-align:center;">相關程度</th>
+            </tr>
+          </thead>
+          <tbody>${outcomeRows}</tbody>
+        </table>
+      `;
 
+      // 授課進度表
+      let scheduleRows = data.schedule.map(s => `
+        <tr>
+          <td class="week-col">${s.w}</td>
+          <td class="date-col">${s.d}</td>
+          <td>${s.t.replace(/\n/g, '<br>')}</td>
+          <td class="remark-col">${s.r}</td>
+        </tr>
+      `).join('');
+
+      // 配分比例表
+      let gradingRows = data.gradingTable.map(g => `
+        <tr>
+          <td style="padding:0.4rem 0.6rem; border:1px solid #e2e8f0;">${g.item}</td>
+          <td style="padding:0.4rem 0.6rem; border:1px solid #e2e8f0; font-weight:700; color:var(--color-accent);">${g.pct}</td>
+          <td style="padding:0.4rem 0.6rem; border:1px solid #e2e8f0;">${g.method}</td>
+        </tr>
+      `).join('');
+
+      let gradingTableHtml = `
+        <table class="info-table" style="margin-bottom:0.8rem;">
+          <thead>
+            <tr style="background:#f8fafc;">
+              <th style="border:1px solid #e2e8f0; padding:0.4rem 0.6rem; text-align:left;">配分項目</th>
+              <th style="border:1px solid #e2e8f0; padding:0.4rem 0.6rem; text-align:left;">比例</th>
+              <th style="border:1px solid #e2e8f0; padding:0.4rem 0.6rem; text-align:left;">多元評量方式說明</th>
+            </tr>
+          </thead>
+          <tbody>${gradingRows}</tbody>
+        </table>
+      `;
+
+      // 組合全部內容
       body.innerHTML = `
-        <div class="modal-section-h">🎯 課程理念與目標</div>
-        <p style="margin-bottom:0.6rem;">${c.desc}</p>
-        <p><strong>核心目標：</strong>${c.objectives}</p>
+        ${infoHtml}
 
-        <div class="modal-section-h">📊 成績評量方式</div>
-        <ul style="padding-left:1.3rem; margin-bottom:0.6rem;">${gradingList}</ul>
+        <div class="modal-section-h">📖 課程描述 (Course Description)</div>
+        <div class="text-block">${data.desc}</div>
 
-        <div class="modal-section-h">📅 授課進度與主題</div>
+        <div class="modal-section-h">🎯 課程目標 (Course Objectives)</div>
+        <div class="text-block">${data.objectives}</div>
+
+        <div class="modal-section-h">📌 系專業能力指標相關性</div>
+        ${outcomesHtml}
+
+        <div class="modal-section-h">💡 教學策略與創新自評</div>
+        <p><strong>教學策略：</strong>${data.strategies}</p>
+        <p><strong>教學創新：</strong>${data.innovations}</p>
+
+        <div class="modal-section-h">📅 授課進度與講授內容 (Teaching Schedule)</div>
         <table class="modal-schedule-table">
           <thead>
-            <tr><th>週次</th><th>日期</th><th>主題與內容</th></tr>
+            <tr>
+              <th>週次</th>
+              <th>日期</th>
+              <th>內容 / 講授主題</th>
+              <th>備註</th>
+            </tr>
           </thead>
           <tbody>${scheduleRows}</tbody>
         </table>
 
-        <div class="modal-section-h">📚 教科書與參考書目</div>
-        <p>${c.textbooks}</p>
+        ${data.flexible && data.flexible !== "無" ? `
+          <div class="modal-section-h">🔄 彈性教學規劃 (Flexible Teaching Plan)</div>
+          <div class="text-block">${data.flexible}</div>
+        ` : ''}
+
+        <div class="modal-section-h">📊 學期成績計算與評量方式 (Grading & Assessments)</div>
+        ${gradingTableHtml}
+
+        <div class="modal-section-h">📝 評量方式補充說明 (Supplemental Instructions)</div>
+        <div class="text-block">${data.gradingNotes}</div>
+
+        <div class="modal-section-h">📚 教科書與參考書目 (Textbooks & References)</div>
+        <div class="text-block">${data.textbooks}</div>
+
+        ${data.remarks && data.remarks !== "無" ? `
+          <div class="modal-section-h">ℹ️ 其他補充說明</div>
+          <div class="text-block">${data.remarks}</div>
+        ` : ''}
       `;
 
       // PDF Link
